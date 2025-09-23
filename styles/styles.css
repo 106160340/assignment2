@@ -11,7 +11,10 @@ last modified: 23/09/2025
 description: global style sheet for html in assignment1
 
 */
-
+/* Overall page layout */
+article {
+    min-width: 30em;
+}
 /* Heading style for all three levels */
 h1 {
     color: #982929;
@@ -62,9 +65,11 @@ td {
 }
 
 /* image section style */
-#images {
+#logo {
     text-align: center;
     /* careful: center has US spelling */
+    max-width: 10%;
+    margin: 2%;
 }
 
 /* form prompt text styles */
@@ -100,4 +105,23 @@ aside {
 aside:hover {
     transition: transform 0.5s;
     transform: translateY(-10px);
+}
+/* Footer style */
+
+footer p {
+    display: inline-block;
+    width: 33%;
+}
+
+footer p:first-child {
+    float: left;
+}
+
+footer p:nth-child(2) {
+    text-align: center;
+}
+
+footer p:last-child {
+    float: right;
+    text-align: right;
 }
