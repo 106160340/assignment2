@@ -68,7 +68,7 @@ td {
 #logo {
     text-align: center;
     /* careful: center has US spelling */
-    max-width: 10%;
+    width: 10%;
     margin: 2%;
 }
 
@@ -95,11 +95,11 @@ aside {
     border: #8b4946 solid 1px;
     margin: 0.5em;
     padding: 0.5em;
-    background-image: url("../images/aside_background.png");
-    background-repeat: no-repeat;
+    background-image: url("../images/fade.jpg");
+    background-repeat: repeat-x;
     background-size: cover;
     float: right;
-    width: 30%;
+    width: 20%;
 }
 
 aside:hover {
@@ -109,6 +109,7 @@ aside:hover {
 /* Footer style */
 
 footer p {
+    font-style: italic;
     display: inline-block;
     width: 33%;
 }
