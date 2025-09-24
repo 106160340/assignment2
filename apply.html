@@ -49,11 +49,11 @@
                 <fieldset>
                     <legend>Job Details</legend>
                     <!-- Specify restriction on the input-->
-                    <p class="prompt">Please fill in the Job Reference Number exactly as it appears in the <a href="jobs.html">job listing</a>.
-                        Accepting 5-digit numbers only.</p>
-                    <p class="prompt">For example: 12345</p>
+                    <p class="prompt">Please fill in the Job Reference Number exactly as it appears in the <a class="inline_link" href="jobs.html">job listing</a>.
+                        Accepting 5-character alfanumeric input only.</p>
+                    <p class="prompt">For example: ab123</p>
                     <p><label for="job_ref">Job Reference Number<span class="asterisk">&ast;</span></label>
-                        <input type="text" id="job_ref" name="job_ref" pattern="\d{5}" required />
+                        <input type="text" id="job_ref" name="job_ref" pattern="[A-Za-z0-9]{5}" required />
                     </p>
 
                 </fieldset>
@@ -135,7 +135,7 @@
                     <legend>Skills</legend>
                     <p class="prompt">Please select at least one, and select all that apply.<span class="asterisk">&ast;</span></p>
                     <p>
-                        <input type="checkbox" id="computer" name="skills[]" value="basic_computer_literacy" />
+                        <input type="checkbox" id="computer" name="skills[]" value="basic_computer_literacy" checked="checked"/>
                         <label for="computer">Basic Computer Literacy</label>
                     </p>
                     <p>
@@ -182,7 +182,7 @@
                         <input type="checkbox" id="other_skill" name="skills[]" value="other_skill" />
                         <label for="other_skill">Other skills...</label>
                         <input type="text" id="other_skill_text" name="other_skill_text" pattern=".{1,100}"
-                            placeholder="Please specify, max. 100 characters." style="width: 30%;"/>
+                            placeholder="Please specify, max. 100 characters." style="width: 30%;" required />
                     </p>
                 </fieldset>
 
