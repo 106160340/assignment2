@@ -6,7 +6,7 @@ author: Yousaff Mohammad
 
 created: 24/09/2025
 
-last modified: 24/09/2025
+last modified: 25/09/2025
 
 description: jobs style sheet for html in assignment1
 
@@ -44,24 +44,6 @@ h3 {
 footer {
   border-top: 4px double darkgray;
   clear: both;
-}
-
-/* Aside Styling */
-aside {
-  border: 3px solid #8b4946;
-  border-radius: 14px;
-  margin: 3em;
-  padding: 1em;
-  width: 25%;
-  float: right;
-  box-shadow: 10px 10px 5px #aaaaaa;
-  font-weight: bold;
-}
-
-/* Hovering effect for aside */
-aside:hover {
-  transition: transform 0.5s;
-  transform: translateY(-10px);
 }
 
 /* Logo styling */
