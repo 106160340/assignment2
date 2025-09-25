@@ -1,0 +1,179 @@
+/*
+
+filename: global style for assignment1
+
+author: Ayon Ahammed
+
+created: 23/09/2025
+
+last modified: 24/09/2025
+
+description: global style sheet for html in assignment1
+
+*/
+
+/* 
+following is the header and navigation panel 
+*/
+
+.logo {
+    width: 10em;
+    length: 10em;
+    margin-bottom: 5px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: black;
+}
+
+ul li {
+    float: right;
+}
+
+ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 1em 1em;
+    text-decoration: none;
+}
+
+ul li a:hover {
+    background-color: red;
+    padding: 2em;
+}
+
+#main_heading {
+    font-family: Arial, Helvetica, sans-serif;
+    color: red;
+    background-color: black;
+    margin: 0;
+    padding: 1em;
+    align-self: center;
+}
+
+/*
+
+index.html <body> starts here >>>>
+
+*/
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: whitesmoke;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+#description {
+    display: flex;
+    justify-content: center;
+    background: gray;
+    padding: 5em;
+    border-radius: 15px;
+    width: 50%;
+    transition: box-shadow 0.03s ease;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3)
+}
+
+
+
+#description:hover {
+    box-shadow: 0px 25px 50px -12px rgba(0, 0, 0, 0.3);
+}
+
+
+aside {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: column;
+    margin-bottom: 10px;
+}
+
+#campus {
+    width: 100%;
+    height: auto;
+    border-top: 10px;
+}
+
+#campus_2 {
+    width: 100%;
+    max-height: 350px;
+    align-self: center;
+    border: 20%;
+}
+
+.cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: column;
+}
+
+@media (min-width: auto) {
+    .cards-container {
+        flex-direction: row;
+    }
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    background: crimson;
+    padding: 5em;
+    border-radius: 10px;
+    width: 50%;
+    transition: box-shadow 0.03s ease;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3)
+}
+
+.card:hover {
+    box-shadow: 0px 25px 50px -12px rgba(0, 0, 0, 0.3);
+}
+
+.card-box {
+    background-color: lightcyan;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    padding: 1em;
+    border-radius: 15px;
+    margin-right: 25px;
+    min-width: ;
+}
+
+.card-content h2 {
+    margin-top: 0;
+    font-size: ;
+
+}
+
+.card-content p {
+    line-height: 1.6;
+    color: black;
+}
+
+.navigation_on_home {
+    align-self: center;
+}
+
+.navigation_on_home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: column;
+    border-radius: 15px;
+    color: orange;
+    background-color: crimson;
+    max-width: 15%;
+    height: auto;
+    align-self: center;
+    margin-bottom: 10px;
+}
