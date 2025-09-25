@@ -1,0 +1,128 @@
+/*
+
+filename: global style for assignment1
+
+author: Yitian Yuan
+
+created: 23/09/2025
+
+last modified: 23/09/2025
+
+description: global style sheet for html in assignment1
+
+*/
+/* Overall page layout */
+article {
+    min-width: 30em;
+}
+/* Heading style for all three levels */
+h1 {
+    color: #982929;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+h2 {
+    color: #982929;
+    font-size: 1.5em;
+}
+
+h3 {
+    color: #8b4946;
+    font-size: 1.2em;
+}
+
+/* Global font and color settings */
+* {
+    font-family: "Rubik mono one", Helvetica, Verdana, sans-serif;
+    color: black;
+}
+
+/* Navigation menu style */
+.menu {
+    display: inline-block;
+    text-align: justify;
+    background-color: white;
+}
+
+/* Same as .menu class, but in another form */
+nav p :hover {
+    background-color: #f8d2d5;
+}
+
+nav a {
+    text-decoration: none;
+    padding: 0.2em 0.6em;
+    border: 4px solid #ccc;
+}
+
+/* Table style */
+table,
+th,
+td {
+    border: 1px solid #f8d2d5;
+    border-collapse: collapse;
+}
+
+/* image section style */
+#logo {
+    text-align: center;
+    /* careful: center has US spelling */
+    width: 10%;
+    margin: 2%;
+}
+
+/* form prompt text styles */
+.prompt {
+    color: #8b4946;
+    font-weight: bold;
+    font-size: smaller;
+}
+
+.asterisk {
+    color: #982929;
+}
+
+/* List style */
+
+ol ul {
+    list-style-type: square;
+}
+
+/* Aside style */
+aside {
+    font-style: italic;
+    border: #8b4946 solid 1px;
+    margin: 0.5em;
+    padding: 0.5em;
+    background-image: url("../images/fade.jpg");
+    background-repeat: repeat-x;
+    background-size: cover;
+    float: right;
+    width: 20%;
+}
+
+aside:hover {
+    transition: transform 0.5s;
+    transform: translateY(-10px);
+}
+/* Footer style */
+
+footer p {
+    font-style: italic;
+    display: inline-block;
+    width: 33%;
+}
+
+footer p:first-child {
+    float: left;
+}
+
+footer p:nth-child(2) {
+    text-align: center;
+}
+
+footer p:last-child {
+    float: right;
+    text-align: right;
+}
