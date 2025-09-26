@@ -7,58 +7,71 @@
     <meta name="keywords"
         content="University, jobs, research, digital, computer science, technology, position, IT, application, salary package" />
     <meta name="author" content="State University HR team" />
+    <meta name="viewport" content="width=device-width, initial scale=1.0">
     <!-- Update title field to your page accordingly, this title will be displayed on the browser tab -->
     <title>Apply</title>
     <!-- References to external CSS files, should be the same global CSS for consistency, do not edit unless necessary -->
-    <link rel="stylesheet" type="text/css" href="styles/styles.css" />
+    <link rel="stylesheet" type="text/css" href="styles/style.css" />
+    <!-- References to external responsive CSS file -->
+    <link href="styles/responsive.css" rel="stylesheet" media="screen and (max-width: 3840px)" />
+    <style>
+    </style>
     <!-- Add more stylesheets as needed -->
 </head>
 <!-- Following will be displayed on the page -->
 
 <body>
-    <header>
-        <!-- Logo image, should be the same each page, do not edit unless necessary -->
-        <img src="images/state_university_logo.png" alt="State University logo" title="State University" id="logo" />
-        <!-- Please update this heading to your page accordingly (this is the largest heading on the very top of the page) -->
-        <h1 id="main_heading">Apply</h1>
-        <hr>
-    </header>
-    <nav>
-        <!-- Navigation Menu, must be the same each page, do not edit -->
-        <p class="menu"><a href="index.html">Home</a></p>
-        <p class="menu"><a href="jobs.html">Jobs</a></p>
-        <p class="menu"><a href="apply.html">Apply</a></p>
-        <p class="menu"><a href="about.html">About</a></p>
-    </nav>
-    <!-- Accessibility labeling, do not need to edit -->
-    <article aria-labelledby="main_heading">
-        <!-- Relevant information considered as a whole big block goes into the same section -->
-        <!-- Accessibility design: Please try to include that aria-labelledby="xx" thing and put an ID in the meaningful element for accessibility -->
-        <section id="Application Form" aria-labelledby="section_one_heading">
+        <!-- Navigation Menu & Header -->
+        <!-- clickable logo and nav menu -->
+        <div class="header" role="banner">
+            <!-- Logo links back to home -->
+            <a href="index.html" aria-label="Go to Home Page">
+                <img src="images/logo.png" alt="State University Logo" title="Logo" class="logo">
+            </a>
+            <!-- Navigation bar with links to all pages -->
+            <nav role="navigation">
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="apply.html" aria-current="page">Apply</a></li>
+                    <li><a href="jobs.html">Jobs</a></li>
+                    <li><a href="index.html">Home</a></li>
+                </ul>
+            </nav>
+        </div>
+        <!-- Hero Image -->
+        <img src="images/university_1.jpg" alt="Photo Taken at State University Campus, a tree in front of a building"
+            title="State University Campus" id="campus_2">
+        <!-- main heading of the page -->
+         <h1>Apply Now</h1>
+    <article>
+        <section aria-labelledby="form_instruction">
             <!-- Please update this heading to your page accordingly (this is the first line after your navigation bar)-->
-            <h2>Please Fill In The Application Form</h2>
+            <h2 id="form_heading">Please Fill In The Application Form</h2>
             <!-- Update, add or remove paragraphs and headings as needed -->
             <p>Required fields are marked with an asterisk (<span class="asterisk">&ast;</span>).</p>
-            <p>Please ensure that all information provided is accurate and complete to the best of your knowledge
+            <p id="form_instruction">Please ensure that all information provided is accurate and complete to the best of
+                your knowledge
             </p>
         </section>
-        <!-- Add more sections as needed, below are some dummy stuffs left from the lab examples -->
         <!-- Forms -->
-        <section>
+        <section id="application_form" aria-labelledby="form_heading">
             <form method="post" action="https://mercury.swin.edu.au/it000000/formtest.php">
-                <fieldset>
-                    <legend>Job Details</legend>
+                <!-- Job details -->
+                <div id="job_details" class="form_section">
+                    <h2>Job Details</h2>
                     <!-- Specify restriction on the input-->
-                    <p class="prompt">Please fill in the Job Reference Number exactly as it appears in the <a class="inline_link" href="jobs.html">job listing</a>.
+                    <p class="prompt">Please fill in the Job Reference Number exactly as it appears in the <a
+                            class="inline_link" href="jobs.html">job listing</a>.
                         Accepting 5-character alfanumeric input only.</p>
                     <p class="prompt">For example: ab123</p>
                     <p><label for="job_ref">Job Reference Number<span class="asterisk">&ast;</span></label>
-                        <input type="text" id="job_ref" name="job_ref" pattern="[A-Za-z0-9]{5}" required />
+                        <input type="text" id="job_ref" name="job_ref" pattern="[A-Za-z0-9]{5}" placeholder="e.g. ab123"
+                            required />
                     </p>
 
-                </fieldset>
-                <fieldset>
-                    <legend>Personal Information</legend>
+                </div>
+                <div id="personal_info" class="form_section">
+                    <h2>Personal Information</h2>
                     <p class="prompt">Maximum 20 characters in each field.</p>
                     <p><label for="first_name">First Name<span class="asterisk">&ast;</span></label>
                         <input type="text" id="first_name" name="first_name" pattern="[A-Za-z]+{,20}"
@@ -75,23 +88,22 @@
                     <p><label for="dob">Date of Birth<span class="asterisk">&ast;</span></label>
                         <input type="date" id="dob" name="date_of_birth" format="dd/MM/yyyy" required />
                     </p>
-                </fieldset>
-                <!-- Gender selection - radio type -->
-                <fieldset>
-                    <legend>Gender</legend>
-                    <p>Gender<span class="asterisk">&ast;</span></p>
-                    <p class="prompt">Please select your gender:</p>
-                    <p>
-                        <input type="radio" id="male" name="gender" value="male" required="required" />
-                        <label for="male">Male</label>
-                        <input type="radio" id="female" name="gender" value="female" />
-                        <label for="female">Female</label>
-                        <input type="radio" id="other" name="gender" value="other" />
-                        <label for="other">Other</label>
-                    </p>
-                </fieldset>
-                <fieldset>
-                    <legend>Address</legend>
+                    <!-- Gender selection - radio type -->
+                    <fieldset id="gender" class="form_section">
+                        <legend>Gender<span class="asterisk">&ast;</span></legend>
+                        <p>
+                            <input type="radio" id="male" name="gender" value="male" required="required" />
+                            <label for="male">Male</label>
+                            <input type="radio" id="female" name="gender" value="female" />
+                            <label for="female">Female</label>
+                            <input type="radio" id="other" name="gender" value="other" />
+                            <label for="other">Other</label>
+                        </p>
+                    </fieldset>
+                </div>
+                <!-- Address details -->
+                <div id="address" class="form_section">
+                    <h2>Address</h2>
                     <p><label for="street">Street Address<span class="asterisk">&ast;</span></label>
                         <input type="text" id="street" name="street" placeholder="e.g. 123 Main St" pattern=".{1,40}"
                             required />
@@ -117,10 +129,10 @@
                             required />
                     </p>
 
-                </fieldset>
-                <fieldset>
-                    <legend>Contact Information</legend>
-                    
+                </div>
+                <!-- Contact details -->
+                <div id="contact_info" class="form_section">
+                    <h2>Contact Information</h2>
                     <p><label for="email">Email<span class="asterisk">&ast;</span></label>
                         <input type="text" id="email" name="email" placeholder="e.g. john.smith@example.com"
                             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required />
@@ -130,64 +142,71 @@
                         <input type="tel" id="phone" name="phone" pattern="\d{8,12}" placeholder="e.g. 0412345678"
                             required />
                     </p>
-                </fieldset>
-                <fieldset>
-                    <legend>Skills</legend>
-                    <p class="prompt">Please select at least one, and select all that apply.<span class="asterisk">&ast;</span></p>
+                </div>
+                <!-- Skills - checkbox type -->
+                <div id="skills" class="form_section">
+                    <h2>Skills</h2>
+                    <p class="prompt">Please select at least one, and select all that apply.<span
+                            class="asterisk">&ast;</span></p>
                     <p>
-                        <input type="checkbox" id="computer" name="skills[]" value="basic_computer_literacy" checked="checked"/>
+                    <fieldset>
+                        <legend>Relevant Skills</legend>
+                        <input type="checkbox" id="computer" name="skills[]" value="basic_computer_literacy"
+                            checked="checked" />
                         <label for="computer">Basic Computer Literacy</label>
-                    </p>
-                    <p>
-                        <input type="checkbox" id="pm" name="skills[]" value="project_management" />
-                        <label for="pm">Project Management</label>
-                    </p>
-                    <p>
-                        <input type="checkbox" id="first_aid" name="skills[]" value="first_aid" />
-                        <label for="first_aid">First Aid</label>
-                    </p>
-                    <p>
-                        <input type="checkbox" id="programming" name="skills[]" value="programming" />
-                        <label for="programming">Programming</label>
-                    </p>
-                    <p>
-                        <input type="checkbox" id="data_analysis" name="skills[]" value="data_analysis" />
-                        <label for="data_analysis">Data Analysis</label>
-                    </p>
-                    <p>
-                        <input type="checkbox" id="research" name="skills[]" value="research" />
-                        <label for="research">Research</label>
-                    </p>
-                    <p>
-                        <input type="checkbox" id="writing" name="skills[]" value="technical_writing" />
-                        <label for="writing">Technical Writing</label>
-                    </p>
-                    <p>
-                        <input type="checkbox" id="teaching" name="skills[]" value="teaching" />
-                        <label for="teaching">Teaching</label>
-                    </p>
-                    <p>
-                        <input type="checkbox" id="electrical" name="skills[]" value="electrical" />
-                        <label for="electrical">Electrical Wiring</label>
-                    </p>
-                    <p>
-                        <input type="checkbox" id="modelling" name="skills[]" value="modelling" />
-                        <label for="modelling">Modelling</label>
-                    </p>
-                    <p>
-                        <input type="checkbox" id="soldering" name="skills[]" value="soldering" />
-                        <label for="soldering">Soldering</label>
-                    </p>
-                    <p>
-                        <input type="checkbox" id="other_skill" name="skills[]" value="other_skill" />
-                        <label for="other_skill">Other skills...</label>
-                        <input type="text" id="other_skill_text" name="other_skill_text" pattern=".{1,100}"
-                            placeholder="Please specify, max. 100 characters." style="width: 30%;" required />
-                    </p>
-                </fieldset>
+                        </p>
+                        <p>
+                            <input type="checkbox" id="pm" name="skills[]" value="project_management" />
+                            <label for="pm">Project Management</label>
+                        </p>
+                        <p>
+                            <input type="checkbox" id="first_aid" name="skills[]" value="first_aid" />
+                            <label for="first_aid">First Aid</label>
+                        </p>
+                        <p>
+                            <input type="checkbox" id="programming" name="skills[]" value="programming" />
+                            <label for="programming">Programming</label>
+                        </p>
+                        <p>
+                            <input type="checkbox" id="data_analysis" name="skills[]" value="data_analysis" />
+                            <label for="data_analysis">Data Analysis</label>
+                        </p>
+                        <p>
+                            <input type="checkbox" id="research" name="skills[]" value="research" />
+                            <label for="research">Research</label>
+                        </p>
+                        <p>
+                            <input type="checkbox" id="writing" name="skills[]" value="technical_writing" />
+                            <label for="writing">Technical Writing</label>
+                        </p>
+                        <p>
+                            <input type="checkbox" id="teaching" name="skills[]" value="teaching" />
+                            <label for="teaching">Teaching</label>
+                        </p>
+                        <p>
+                            <input type="checkbox" id="electrical" name="skills[]" value="electrical" />
+                            <label for="electrical">Electrical Wiring</label>
+                        </p>
+                        <p>
+                            <input type="checkbox" id="modelling" name="skills[]" value="modelling" />
+                            <label for="modelling">Modelling</label>
+                        </p>
+                        <p>
+                            <input type="checkbox" id="soldering" name="skills[]" value="soldering" />
+                            <label for="soldering">Soldering</label>
+                        </p>
+                        <p>
+                            <input type="checkbox" id="other_skill" name="skills[]" value="other_skill" />
+                            <label for="other_skill">Other skills...</label>
+                            <input type="text" id="other_skill_text" name="other_skill_text" pattern=".{1,100}"
+                                placeholder="Max. 100 characters." required />
+                            <label for="other_skill_text">Please specify</label>
+                        </p>
+                    </fieldset>
+                </div>
 
-                <input class="button" type="submit" value="Book" />
-                <input class="button" type="reset" value="Reset Form" />
+                <input class="button" id="submit" type="submit" value="Submit Application Form" />
+                <input class="button" id="reset" type="reset" value="Reset Form" />
             </form>
         </section>
     </article>
@@ -197,4 +216,5 @@
         <p id="slogan">Stronger Together</p>
     </footer>
 </body>
+
 </html>

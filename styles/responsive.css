@@ -1,0 +1,140 @@
+/* Responsive design - layout for different screens */
+/* media query for display: less than 768px (phone and iPad mini) */
+@media (max-width: 768px) {
+
+  /* Ensure images scale within their containers */
+  img {
+    display: block;
+    width: 100%;
+    max-height: calc(100vh - 200px);
+  }
+
+  article {
+    min-width: 350px;
+  }
+
+  main {
+    padding: 1em;
+  }
+
+  #group-info h1 {
+    font-size: 2em;
+  }
+
+  dl {
+    gap: 1em;
+  }
+
+  dl dt,
+  dl dd {
+    padding: 0.8em;
+  }
+
+  table {
+    font-size: 0.9em;
+  }
+
+  th,
+  td {
+    padding: 0.5em;
+  }
+
+  #fun-facts {
+    overflow-x: auto;
+    /* Scrollable table on small screens */
+  }
+}
+
+/* media query for display: greater than 769px (iPad and small tablets) */
+@media screen and (min-width: 769px) {
+  img {
+    display: block;
+    width: 100%;
+    max-height: calc(100vh - 200px);
+  }
+
+  article {
+    min-width: 600px;
+  }
+
+  main {
+    padding: 1em;
+  }
+
+  #group-info h1 {
+    font-size: 2.5em;
+  }
+
+  dl {
+    gap: 1.5em;
+  }
+
+  dl dt,
+  dl dd {
+    padding: 1em;
+  }
+
+  table {
+    font-size: 1em;
+  }
+
+  th,
+  td {
+    padding: 0.75em;
+  }
+
+  #fun-facts {
+    overflow-x: auto;
+    /* Scrollable table on small screens */
+  }
+
+  /* Form grid layout */
+  form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto auto auto;
+    grid-gap: 10px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #job_details {
+    grid-column: 1;
+    grid-row: 1;
+    margin: 5px 0;
+  }
+
+  #personal_info {
+    grid-column: 1;
+    grid-row: 2;
+    margin: 5px 0;
+  }
+
+  #address {
+    grid-column: 1 grid-row: 3;
+    margin: 5px 0;
+  }
+
+  #contact_info {
+    grid-column: 2 grid-row: 1;
+    margin: 5px 0;
+  }
+
+  #skills {
+    grid-column: 2;
+    grid-row: 2 / span 2;
+    margin: 5px 0;
+  }
+
+  #submit {
+    grid-column: 1;
+    grid-row: 4;
+    margin: 5px 0;
+  }
+
+  #reset {
+    grid-column: 2;
+    grid-row: 4;
+    margin: 5px 0;
+  }
+}
