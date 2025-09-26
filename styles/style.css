@@ -285,3 +285,8 @@ footer p:last-child {
 .inline_link:hover {
     text-decoration: underline;
 }
+
+/* Job section */
+#section_two {
+  float: left;
+}

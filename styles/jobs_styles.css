@@ -12,11 +12,6 @@ description: jobs style sheet for html in assignment1
 
 */
 
-/* Responsive layout for smaller screens */
-article {
-  min-width: 30em;
-}
-
 /* Global font and color settings */
 * {
   font-family: "Rubik mono one", Helvetica, Verdana, sans-serif;
