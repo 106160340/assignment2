@@ -16,6 +16,77 @@ body {
   padding: 20px;
 }
 
+/* Header & Navigation - Enhanced for Responsiveness */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 0;
+  background-color: #f4f4f4; /* Light background for contrast */
+  border-bottom: 1px solid #dddddd;
+  margin-bottom: 1em;
+}
+
+.logo {
+  max-height: 60px; /* Consistent logo size */
+  width: auto;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 1em;
+}
+
+nav li a {
+  text-decoration: none;
+  color: #333333;
+  padding: 0.5em 1em;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+}
+
+nav li a:hover,
+nav li a:focus { /* Accessibility: Visible focus for keyboard */
+  background-color: #ff0000;
+  color: #ffffff;
+  outline: 2px solid #ff0000; /* High-contrast focus ring */
+}
+
+/* Hero Image - Responsive Full-Width */
+.hero-image {
+  width: 100%;
+  height: auto;
+  max-height: 400px; /* Prevents over-stretching on desktop */
+  object-fit: cover; /* Crops nicely on mobile */
+  display: block;
+  margin-bottom: 1em;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Skip Link - Accessibility (Hidden visually, shown on focus) */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: #ff0000;
+  color: #ffffff;
+  padding: 8px;
+  text-decoration: none;
+  z-index: 100;
+  border-radius: 4px;
+  transition: top 0.3s ease;
+  font-size: 0.9em;
+}
+
+.skip-link:focus {
+  top: 6px;
+}
+
 /* Main Content - ID and class selectors */
 main {
   background-color: #ffffff; /* Hex white */
@@ -202,6 +273,7 @@ th, td { /* Grouped selectors */
   padding: 1em;
   text-align: left;
   border-bottom: 1px solid #dddddd; /* Hex */
+  border: 1px solid #dddddd; /* Add borders for better cell association (WAVE tip) */
 }
 
 th { /* Bold headers for about.html */
@@ -249,6 +321,26 @@ footer p {
   font-style: italic;
 }
 
+/* Footer Links - Accessibility & Responsive */
+footer p:last-of-type {
+  font-size: 0.9em;
+  margin-top: 1em;
+}
+
+footer a {
+  color: #ff0000; /* Matches slogan for theme */
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-bottom 0.2s ease;
+}
+
+footer a:hover,
+footer a:focus {
+  border-bottom: 1px solid #ff0000;
+  text-decoration: underline;
+  outline: 2px solid #ffffff; /* White focus for dark footer */
+}
+
 /* Inline Demo - Class selector (overrides inline) */
 .inline-demo p {
   color: #888888; /* Hex */
@@ -266,6 +358,30 @@ footer p {
 
   main {
     padding: 1em;
+  }
+
+  .header {
+    flex-direction: column;
+    gap: 1em;
+    text-align: center;
+  }
+
+  nav ul {
+    flex-direction: column; /* Stack nav on mobile */
+    gap: 0.5em;
+    width: 100%;
+  }
+
+  nav li a {
+    display: block;
+    padding: 1em; /* Touch-friendly (44px min height) */
+    border: 1px solid #dddddd;
+    background-color: #ffffff;
+    text-align: center;
+  }
+
+  .hero-image {
+    max-height: 250px; /* Smaller on mobile to save space */
   }
 
   #student-ids { /* Responsive: Stack on mobile */
@@ -302,5 +418,9 @@ footer p {
 @media (max-width: 480px) {
   figure img {
     width: 100%;
+  }
+
+  nav li a {
+    padding: 0.8em; /* Slightly smaller but still touch-friendly */
   }
 }
