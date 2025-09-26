@@ -23,10 +23,10 @@
         </ul>
     </div>
     <img src="images/university_1.jpg" alt="view of university campus. A tree in front of a building." title="State University" class="theme_image">
-    <h1 style="visibility: hidden;">Welcome to State University</h1>
-    <article>
+    <article id="main">
+        <h1>Welcome to State University</h1>
         <!-- University Descriptions-->
-        <section class="cards-container" aria-labelledby="welcome">
+        <section class="cards_container" aria-labelledby="welcome">
             <h2 id="welcome">State University</h2>
             <p>
                 State University is a leading institution dedicated to fostering academic excellence, innovation, and
@@ -39,11 +39,11 @@
             </p>
         </section>
         <!-- Department Informations -->
-        <section class="cards-container" aria-labelledby="department">
-            <div>
+        <section class="cards_container" aria-labelledby="department">
+            <div class="card_left">
                 <h2 id="department">Department of Digital Learning & Research</h2>
             </div>
-            <div>
+            <div class="card_right">
                 <p>
                     The Department of Digital Learning & Research at State University is dedicated to advancing
                     education through innovation and technology. Our mission is to provide cutting-edge digital
@@ -64,13 +64,13 @@
             </div>
         </section>
         <!-- Department achievements -->
-         <section class="cards-container" aria-labelledby="achievements">
-            <div>
+         <section class="cards_container" aria-labelledby="achievements">
+            <div class="card_left">
                 <h2 id="achievements">Achievements</h2>
             </div>
-            <div>
+            <div class="card_right">
                 <p>So far we've:
-                <ul id="achievements_home">
+                <ol id="achievements_home">
                     <p>
                         <li>Launched State University's first digital learning platform.</li>
                         <li>Partnered up with industry leaders.</li>
@@ -78,18 +78,18 @@
                         <li>Pioneered the intigration of virtual reality and simulations.</li>
                     </p>
                     <p> +<b>more</b> on their way.</p>
-                </ul>
+                </ol>
                 </p>
             </div>
          </section>
          <!-- slogan -->
-          <section class="cards-container" aria-labelledby="slogan">
+          <section class="cards_container" aria-labelledby="slogan" style="grid-template-columns: 1fr; text-align: center;">
             <h2>
-                Our Slogan is "<em>Stronger Together</em>", just as we are!
+                Our Slogan is <em>"Stronger Together"</em>, just as we are!
             </h2>
           </section>
-        <img src="images/university.jpg" alt="view of university campus. Blossom trees." title="State University" class="theme_image">
     </article>
+    <img src="images/university.jpg" alt="view of university campus. Blossom trees." title="State University" class="theme_image">
     <footer>
         <p id="page_title"><a
                 href="https://student-team-10026.atlassian.net/jira/software/projects/SCRUM/boards/1/backlog?epics=visible&atlOrigin=eyJpIjoiYmUyNTNlMjBmZDVkNGQ2MTk1NTg2Njk3YzMwYTQ2ZDUiLCJwIjoiaiJ9">Jira
