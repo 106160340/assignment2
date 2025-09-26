@@ -12,6 +12,8 @@
   <title>Jobs</title>
   <!-- References to external CSS files-->
   <link rel="stylesheet" type="text/css" href="styles/style.css" />
+  <!-- References to external responsive CSS file -->
+  <link href="styles/responsive.css" rel="stylesheet" media="screen and (max-width: 3840px)" />
   <style>
     /* Aside Styling */
     aside {
@@ -24,6 +26,7 @@
       box-shadow: 10px 10px 5px #aaaaaa;
       font-weight: bold;
     }
+
     /* Hovering effect for aside */
     aside:hover {
       transition: transform 0.5s;
@@ -37,16 +40,17 @@
     <img src="images/logo.png" alt="logo" title="State University Logo" class="logo">
 
     <nav role="navigation">
-            <ul id="nav_list">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="jobs.html" aria-current="page">Jobs</a></li>
-            <li><a href="apply.html">Apply</a></li>
-            <li><a href="about.html">About</a></li>
-            </ul>
-        </nav>
+      <ul id="nav_list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="jobs.html" aria-current="page">Jobs</a></li>
+        <li><a href="apply.html">Apply</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
   </div>
 
-  <img src="images/university_1.jpg" alt="view of university campus. A tree in front of a building." title="State University" class="theme_image">
+  <img src="images/university_1.jpg" alt="view of university campus. A tree in front of a building."
+    title="State University" class="theme_image">
   <!-- main heading of the page -->
   <h1 id="job_page_heading">Jobs</h1>
   <article aria-labelledby="job_page_heading">
@@ -56,10 +60,10 @@
       <p>Please head to the apply page, so you can help us realize a future where the digital learning and research
         space is transformed for better. </p>
     </aside>
-
+    <hr>
     <!-- Job Listing 1-->
     <section id="section_one" aria-labelledby="section_one_heading">
-      <h2 id="section_one_heading">Digital Learning Support Office</h2>
+      <h2 id="section_one_heading">Digital Learning Support Officer</h2>
       <p><strong>Reference Number:</strong> DLS15</p>
       <p><strong>Salary:</strong> $70,000 per year plus Super</p>
       <p><strong>Reporting Line:</strong> Head of Digital Learning</p>
@@ -87,6 +91,7 @@
       </ul>
     </section>
     <!-- JOB Listing 2 -->
+    <hr>
     <section id="section_two" aria-labelledby="section_two_heading">
       <h2 id="section_two_heading">Research Assistant</h2>
       <p><strong>Reference Number:</strong> RA025</p>
@@ -120,14 +125,13 @@
       </ul>
     </section>
     <!-- Image (e-learning) -->
-    <section id="image">
-      <figure><img src="images/tinyelearn.jpg"
-          alt="Photo of Digital Learning - a laptop displays e-learning on its screen" title="e-learning"></figure>
-    </section>
+    <figure><img src="images/tinyelearn.jpg"
+      alt="Photo of Digital Learning - a laptop displays e-learning on its screen. Image is only for illustration purpose."
+      title="e-learning" id="deco-img"></figure>
   </article>
   <!-- Footer at end of page -->
   <footer>
-    <p id="page_title">Job Application Page</p>
+    <p id="page_title">Job Listing Page</p>
     <p id="copyright">&#169; State University</p>
     <p id="slogan">Stronger Together</p>
   </footer>

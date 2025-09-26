@@ -65,7 +65,13 @@ article {
 }
 
 #main {
-    background-image: url(images/building.png); background-size: cover;
+    /* Overlay a semi-transparent white on top of the background image */
+    background-image: url(images/building.png);
+    background-size: cover;
+    background-color: rgba(255, 255, 255, 0.5);
+    /* A semi-transparent white color */
+    background-blend-mode: lighten;
+    /* Blends the image and color, choosing the lighter pixels */
 }
 
 h1 {
@@ -105,7 +111,7 @@ article {
     padding: 5em;
     margin: 5%;
     background-color: whitesmoke;
-    opacity: 0.9;
+    opacity: 0.95;
     border: 2px solid #ccc;
     border-radius: 15px;
 }
@@ -113,17 +119,26 @@ article {
 .cards_container:hover {
     box-shadow: 0px 25px 50px -12px rgba(0, 0, 0, 0.3);
 }
+
 .card_left {
-grid-column-start: 1;
+    grid-column-start: 1;
 }
+
 .card_right {
     grid-column-start: 2;
 }
 
 /* Images */
-
 .theme_image {
     width: 100%;
+}
+
+figure img {
+    border: 3px solid #8b4946;
+    border-radius: 14px;
+    padding: 1em;
+    margin: 5px;
+    box-shadow: 10px 10px 5px #aaaaaa;
 }
 
 /* Form prompt text styles */
@@ -154,8 +169,11 @@ label {
     text-align: left;
     margin-right: 10px;
 }
+
 /* Footer style */
 footer {
+    float: none;
+    clear: both;
     margin: 5%;
     padding: 1em;
 }
@@ -178,6 +196,7 @@ footer p:last-child {
     float: right;
     text-align: right;
 }
+
 footer a {
     text-decoration: none;
     color: black;
@@ -203,7 +222,7 @@ footer a {
 
 /* Inline link style */
 .inline_link {
-    color: rgb(0,0,0);
+    color: rgb(0, 0, 0);
 }
 
 .inline_link:hover {
@@ -212,5 +231,5 @@ footer a {
 
 /* Job section */
 #section_two {
-  float: left;
+    float: left;
 }
