@@ -6,7 +6,7 @@ author: Ayon Ahammed
 
 created: 23/09/2025
 
-last modified: 24/09/2025
+last modified: 26/09/2025 by YY
 
 description: style sheet for index of assignment1
 
@@ -16,12 +16,20 @@ description: style sheet for index of assignment1
 following is the header and navigation panel 
 */
 
-.logo {
-    width: 10em;
-    length: 10em;
-    margin-bottom: 5px;
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: whitesmoke;
+    box-sizing: border-box;
+    margin: 0;
+    min-width: 350px;
 }
 
+.logo {
+    width: 10em;
+    height: auto;
+}
+
+/* Navigation menu style */
 ul {
     list-style-type: none;
     margin: 0;
@@ -44,7 +52,31 @@ ul li a {
 
 ul li a:hover {
     background-color: red;
-    padding: 2em;
+}
+
+/* Heading style for all three levels */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1em;
+}
+
+article {
+    padding: 5%;
+    margin: auto;
+}
+
+h1 {
+    font-size: x-large;
+    font-weight: bold;
+    text-align: center;
+}
+
+h2 {
+    font-size: larger;
+}
+
+h3 {
+    font-size: large;
 }
 
 #main_heading {
@@ -61,13 +93,6 @@ ul li a:hover {
 index.html <body> starts here >>>>
 
 */
-
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: whitesmoke;
-    box-sizing: border-box;
-    margin: 0;
-}
 
 #description {
     display: flex;
@@ -176,4 +201,84 @@ aside {
     height: auto;
     align-self: center;
     margin-bottom: 10px;
+}
+
+/* Form prompt text styles */
+.prompt {
+    font-weight: lighter;
+    font-size: smaller;
+    font-style: italic;
+}
+
+form div {
+    border: 2px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.asterisk {
+    color: #982929;
+}
+
+label {
+    max-width: 350px;
+    display: inline-block;
+    text-align: right;
+}
+
+#radio_label,
+#skills p label {
+    text-align: left;
+    margin-right: 10px;
+}
+/* Footer style */
+footer {
+    margin: 5%;
+    padding: 1em;
+}
+
+footer p {
+    font-style: italic;
+    display: inline-block;
+    width: 33%;
+}
+
+footer p:first-child {
+    float: left;
+}
+
+footer p:nth-child(2) {
+    text-align: center;
+}
+
+footer p:last-child {
+    float: right;
+    text-align: right;
+}
+
+/* Button style */
+.button {
+    color: white;
+    background-color: black;
+    border: none;
+    padding: 0.5em 1em;
+    font-size: 1em;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.button:hover {
+    background-color: red;
+    color: white;
+}
+
+/* Inline link style */
+.inline_link {
+    color: rgb(0,0,0);
+}
+
+.inline_link:hover {
+    text-decoration: underline;
 }
