@@ -17,484 +17,160 @@ following is the header and navigation panel
 */
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: whitesmoke;
-    box-sizing: border-box;
-    margin: 0;
-    min-width: 350px;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: whitesmoke;
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 350px;
 }
 
 .logo {
-    width: 10em;
-    height: auto;
+  width: 10em;
+  height: auto;
 }
 
 /* Navigation menu style */
 nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: black;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: black;
 }
 
 nav ul li {
-    float: right;
+  float: right;
 }
 
 nav ul li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 1em 1em;
-    text-decoration: none;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 1em 1em;
+  text-decoration: none;
 }
 
 nav ul li a:hover {
-    background-color: red;
+  background-color: red;
 }
 
 /* Heading style for all three levels */
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 1em;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1em;
 }
 
 article {
-    padding: 5%;
+  padding: 5%;
 }
 
 #main {
-    /* Overlay a semi-transparent white on top of the background image */
-    background-image: url(images/building.png);
-    background-size: cover;
-    background-color: rgba(255, 255, 255, 0.5);
-    /* A semi-transparent white color */
-    background-blend-mode: lighten;
-    /* Blends the image and color, choosing the lighter pixels */
+  /* Overlay a semi-transparent white on top of the background image */
+  background-image: url(images/building.png);
+  background-size: cover;
+  background-color: rgba(255, 255, 255, 0.5);
+  /* A semi-transparent white color */
+  background-blend-mode: lighten;
+  /* Blends the image and color, choosing the lighter pixels */
 }
 
 h1 {
-    font-size: x-large;
-    font-weight: bold;
-    text-align: center;
+  font-size: x-large;
+  font-weight: bold;
+  text-align: center;
 }
 
 h2 {
-    font-size: larger;
+  font-size: larger;
 }
 
 h3 {
-    font-size: large;
+  font-size: large;
 }
 
 #main_heading {
-    font-family: Arial, Helvetica, sans-serif;
-    color: red;
-    background-color: black;
-    margin: 0;
-    padding: 1em;
-    align-self: center;
+  font-family: Arial, Helvetica, sans-serif;
+  color: red;
+  background-color: black;
+  margin: 0;
+  padding: 1em;
+  align-self: center;
 }
 
 /* article padding */
 article {
-    padding: 5px;
+  padding: 5px;
 }
 
 /* index page style */
 
 .cards_container {
-    display: grid;
-    grid-template-columns: 20% 80%;
-    gap: 5px;
-    padding: 5em;
-    margin: 5%;
-    background-color: whitesmoke;
-    opacity: 0.95;
-    border: 2px solid #ccc;
-    border-radius: 15px;
+  display: grid;
+  grid-template-columns: 20% 80%;
+  gap: 5px;
+  padding: 5em;
+  margin: 5%;
+  background-color: whitesmoke;
+  opacity: 0.95;
+  border: 2px solid #ccc;
+  border-radius: 15px;
 }
 
 .cards_container:hover {
-    box-shadow: 0px 25px 50px -12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 25px 50px -12px rgba(0, 0, 0, 0.3);
 }
 
 .card_left {
-    grid-column-start: 1;
+  grid-column-start: 1;
 }
 
 .card_right {
-    grid-column-start: 2;
+  grid-column-start: 2;
 }
 
 /* Images */
 .theme_image {
-    width: 100%;
+  width: 100%;
 }
 
 figure img {
-    border: 3px solid #8b4946;
-    border-radius: 14px;
-    padding: 1em;
-    margin: 5px;
-    box-shadow: 10px 10px 5px #aaaaaa;
+  border: 3px solid #8b4946;
+  border-radius: 14px;
+  padding: 1em;
+  margin: 5px;
+  box-shadow: 10px 10px 5px #aaaaaa;
 }
 
 /* Form prompt text styles */
 .prompt {
-    font-weight: lighter;
-    font-size: smaller;
-    font-style: italic;
+  font-weight: lighter;
+  font-size: smaller;
+  font-style: italic;
 }
 
 form div {
-    border: 2px solid #ccc;
-    padding: 10px;
-    margin-bottom: 10px;
+  border: 2px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
 }
 
 .asterisk {
-    color: #982929;
+  color: #982929;
 }
 
 label {
-    max-width: 350px;
-    display: inline-block;
-    text-align: right;
+  max-width: 350px;
+  display: inline-block;
+  text-align: right;
 }
 
 #radio_label,
 #skills p label {
-    text-align: left;
-    margin-right: 10px;
-}
-
-/* Footer style */
-footer {
-    float: none;
-    clear: both;
-    margin: 5%;
-    padding: 1em;
-}
-
-footer p {
-    font-style: italic;
-    display: inline-block;
-    width: 33%;
-}
-
-footer p:first-child {
-    float: left;
-}
-
-footer p:nth-child(2) {
-    text-align: center;
-}
-
-footer p:last-child {
-    float: right;
-    text-align: right;
-}
-
-footer a {
-    text-decoration: none;
-    color: black;
-}
-
-/* Button style */
-.button {
-    color: white;
-    background-color: black;
-    border: none;
-    padding: 0.5em 1em;
-    font-size: 1em;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-}
-
-.navigation_on_home {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: column;
-    border-radius: 15px;
-    color: lightcyan;
-    background-color: crimson;
-    max-width: 15%;
-    height: auto;
-    align-self: center;
-    margin-bottom: 10px;
-}
-
-
-
-
-
-
-
-/* author: Ali Jawid Behzad */
-
-/* created: 21/09/2025 */
-
-/* last modified: 26/09/2025 */
-
-/* description: About style sheet for html in assignment1 */
-/* ================= Logo ================= */
-.logo {
-    width: 10em;
-    height: 10em; /* fixed invalid 'length' */
-    margin-bottom: 5px;
-}
-
-/* ================= Navigation ================= */
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: black;
-}
-
-ul li {
-    float: right;
-}
-
-ul li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 1em 1em;
-    text-decoration: none;
-}
-
-ul li a:hover {
-    background-color: red;
-    padding: 2em;
-}
-
-/* ================= Hero Image ================= */
-#campus_al {
-    width: 100%;
-    align-self: center;
-    border: 20%;
-}
-
-/* ================= Heading ================= */
-#main_heading {
-    font-family: Arial, Helvetica, sans-serif;
-    color: red;
-    background-color: black;
-    margin: 0;
-    padding: 1em;
-    align-self: center;
-}
-
-/* ================= Main ================= */
-main {
-  background-color: #ffffff;
-  padding: 2em;
-  margin: 1em 0;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  animation: fadeIn 0.8s ease-in;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-section {
-  animation: fadeIn 0.8s ease-in;
-  animation-fill-mode: both;
-}
-
-/* ================= Group Info ================= */
-#group-info {
-  text-align: center;
-  margin-bottom: 2em;
-  padding: 1em;
-  background-color: #f9f9f9;
-  border-left: 4px solid #ff0000;
-}
-
-#group-info h1 {
-  color: #000000;
-  font-size: 2.5em;
-  margin-bottom: 0.5em;
-}
-
-#group-info p {
-  font-size: 1.2em;
-  color: #666666;
-}
-
-/* ================= Student IDs ================= */
-#student-ids {
-  float: right;
-  width: 30%;
-  margin: 1em 0 1em 1em;
-  padding: 1em;
-  background-color: #f0f0f0;
-  border: 1px solid #dddddd;
-  border-radius: 4px;
-}
-
-#student-ids h3 {
-  color: #000000;
-  margin-bottom: 0.5em;
-  text-align: center;
-}
-
-#student-ids ul {
-  list-style-type: none;
   text-align: left;
+  margin-right: 10px;
 }
 
-#student-ids li {
-  padding: 0.2em 0;
-  border-bottom: 1px solid #e0e0e0;
-}
-
-/* ================= Contributions ================= */
-#contributions {
-  margin-bottom: 2em;
-  overflow: hidden;
-}
-
-#contributions h2 {
-  color: #000000;
-  font-size: 2em;
-  margin-bottom: 1em;
-  text-align: center;
-  border-bottom: 2px solid #dddddd;
-  padding-bottom: 0.5em;
-}
-
-dl {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5em;
-}
-
-dl dt {
-  font-weight: bold;
-  font-size: 1.3em;
-  color: #000000;
-  margin-bottom: 0.5em;
-  background-color: #f0f0f0;
-  padding: 0.5em 1em;
-  border-radius: 4px;
-}
-
-dl dd {
-  margin-left: 1em;
-  padding: 1em;
-  background-color: #fafafa;
-  border-left: 3px solid #ff0000;
-  font-style: italic;
-}
-
-dl dd em {
-  font-weight: bold;
-  color: #000000;
-}
-
-/* ================= Group Photo ================= */
-#group-photo {
-  text-align: center;
-  margin-bottom: 2em;
-}
-
-#group-photo h2 {
-  color: #000000;
-  font-size: 2em;
-  margin-bottom: 1em;
-}
-
-figure {
-  margin: 0 auto;
-  border: 2px solid #dddddd;
-  border-radius: 8px;
-  padding: 0.5em;
-  background-color: #ffffff;
-}
-
-figure img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 4px;
-  transition: transform 0.3s ease;
-}
-
-figure img:hover {
-  transform: scale(1.05);
-}
-
-figcaption {
-  margin-top: 0.5em;
-  font-style: italic;
-  color: #666666;
-  font-size: 0.9em;
-}
-
-/* ================= Fun Facts ================= */
-#fun-facts {
-  margin-bottom: 2em;
-}
-
-#fun-facts h2 {
-  color: #000000;
-  font-size: 2em;
-  margin-bottom: 1em;
-  text-align: center;
-  border-bottom: 2px solid #dddddd;
-  padding-bottom: 0.5em;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 1em 0;
-  background-color: #ffffff;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-caption {
-  font-weight: bold;
-  font-size: 1.2em;
-  color: #000000;
-  padding: 1em;
-  background-color: #f9f9f9;
-}
-
-th, td {
-  padding: 1em;
-  text-align: left;
-  border: 1px solid #dddddd;
-}
-
-th {
-  background-color: #000000;
-  color: #ffffff;
-  font-weight: bold;
-}
-
-tr:nth-child(even) {
-  background-color: #f9f9f9;
-}
-
-tr:hover {
-  background-color: #e9e9e9;
-  transition: background-color 0.2s ease;
-}
-
-/* ================= Footer ================= */
+/* Footer */
 footer {
   text-align: center;
   padding: 2em;
@@ -503,34 +179,44 @@ footer {
   margin-top: 2em;
   border-radius: 8px 8px 0 0;
   clear: both;
+  /* Clear any floats */
+  display: grid;
+  grid-template-columns: 3;
+  grid-template-rows: 2;
 }
 
 footer p {
+  font-style: italic;
   margin: 0.5em 0;
   font-size: 0.9em;
 }
 
-#page_title {
-  font-weight: bold;
-  font-size: 1.1em;
-}
-
-#copyright {
-  color: #cccccc;
-}
-
-#slogan {
+footer #slogan {
   color: #ff0000;
   font-style: italic;
 }
 
-footer p:last-of-type {
-  font-size: 0.9em;
-  margin-top: 1em;
+footer p:first-child {
+  grid-column: 1;
+  grid-row: 1;
+  float: left;
+}
+
+footer p:nth-child(2) {
+  text-align: center;
+  grid-column: 2;
+  grid-row: 1;
+}
+
+footer p:nth-child(3) {
+  grid-column: 3;
+  grid-row: 1;
+  text-align: right;
 }
 
 footer a {
   color: #ff0000;
+  /* Matches slogan for theme */
   text-decoration: none;
   border-bottom: 1px solid transparent;
   transition: border-bottom 0.2s ease;
@@ -541,115 +227,37 @@ footer a:focus {
   border-bottom: 1px solid #ff0000;
   text-decoration: underline;
   outline: 2px solid #ffffff;
+  /* White focus for dark footer */
 }
 
-/* ================= Responsive ================= */
-@media (max-width: 768px) {
-  body {
-    padding: 10px;
-  }
-
-  main {
-    padding: 1em;
-  }
-
-  .heaader {
-    text-align: center;
-  }
-
-  .logo {
-    float: none;
-    margin: 0 auto 0.5em;
-    display: block;
-  }
-
-  #nav_list {
-    float: none;
-    background-color: #000000;
-    width: 100%;
-  }
-
-  #nav_list li {
-    float: none;
-    width: 100%;
-  }
-
-  #nav_list li a {
-    padding: 1em;
-    border-bottom: 1px solid #333333;
-    text-align: center;
-  }
-
-  #nav_list li a:hover,
-  #nav_list li a:focus {
-    padding: 1.5em;
-    width: 100%;
-  }
-
-  .hero-image {
-    max-height: 250px;
-  }
-
-  #student-ids {
-    float: none;
-    width: 100%;
-    margin: 1em 0;
-  }
-
-  #group-info h1 {
-    font-size: 2em;
-  }
-
-  dl {
-    gap: 1em;
-  }
-
-  dl dt, dl dd {
-    padding: 0.8em;
-  }
-
-  table {
-    font-size: 0.9em;
-  }
-
-  th, td {
-    padding: 0.5em;
-  }
-
-  #fun-facts {
-    overflow-x: auto;
-  }
+/* Button style */
+.button {
+  color: white;
+  background-color: black;
+  border: none;
+  padding: 0.5em 1em;
+  font-size: 1em;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
 }
 
-@media (max-width: 480px) {
-  figure img {
-    width: 100%;
-  }
-
-  .logo {
-    width: 8em;
-    height: 8em;
-  }
-
-  #nav_list li a {
-    padding: 0.8em;
-  }
-}
 .button:hover {
-    background-color: red;
-    color: white;
+  background-color: red;
+  color: white;
 }
 
 /* Inline link style */
 .inline_link {
-    color: rgb(0, 0, 0);
+  color: rgb(0, 0, 0);
 }
 
 .inline_link:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 /* Job section */
 #section_two {
-    float: left;
+  float: left;
 }
