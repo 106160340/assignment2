@@ -3,10 +3,13 @@
 @media (max-width: 768px) {
 
   /* Ensure images scale within their containers */
-  img {
+  .theme_image {
     display: block;
     width: 100%;
     max-height: calc(100vh - 200px);
+  }
+  figure img {
+    max-width: 100%;
   }
 
   article {
@@ -47,10 +50,15 @@
 
 /* media query for display: greater than 769px (iPad and small tablets) */
 @media screen and (min-width: 769px) {
-  img {
+  .theme_image {
     display: block;
     width: 100%;
     max-height: calc(100vh - 200px);
+  }
+
+  figure img {
+    min-width: 350px;
+    max-width: 45%;
   }
 
   article {
