@@ -6,7 +6,7 @@ author: Ayon Ahammed
 
 created: 23/09/2025
 
-last modified: 24/09/2025
+last modified: 26/09/2025 by YY
 
 description: style sheet for index of assignment1
 
@@ -16,13 +16,21 @@ description: style sheet for index of assignment1
 following is the header and navigation panel 
 */
 
-.logo {
-    width: 10em;
-    length: 10em;
-    margin-bottom: 5px;
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: whitesmoke;
+    box-sizing: border-box;
+    margin: 0;
+    min-width: 350px;
 }
 
-ul {
+.logo {
+    width: 10em;
+    height: auto;
+}
+
+/* Navigation menu style */
+nav ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -30,11 +38,11 @@ ul {
     background-color: black;
 }
 
-ul li {
+nav ul li {
     float: right;
 }
 
-ul li a {
+nav ul li a {
     display: block;
     color: white;
     text-align: center;
@@ -42,9 +50,36 @@ ul li a {
     text-decoration: none;
 }
 
-ul li a:hover {
+nav ul li a:hover {
     background-color: red;
-    padding: 2em;
+}
+
+/* Heading style for all three levels */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1em;
+}
+
+article {
+    padding: 5%;
+}
+
+#main {
+    background-image: url(images/building.png); background-size: cover;
+}
+
+h1 {
+    font-size: x-large;
+    font-weight: bold;
+    text-align: center;
+}
+
+h2 {
+    font-size: larger;
+}
+
+h3 {
+    font-size: large;
 }
 
 #main_heading {
@@ -56,112 +91,109 @@ ul li a:hover {
     align-self: center;
 }
 
-/*
-
-index.html <body> starts here >>>>
-
-*/
-
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: whitesmoke;
-    box-sizing: border-box;
-    margin: 0;
+/* article padding */
+article {
+    padding: 5px;
 }
 
-#description {
-    display: flex;
-    justify-content: center;
-    background: gray;
+/* index page style */
+
+.cards_container {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    gap: 5px;
     padding: 5em;
+    margin: 5%;
+    background-color: whitesmoke;
+    opacity: 0.9;
+    border: 2px solid #ccc;
     border-radius: 15px;
-    width: 50%;
-    transition: box-shadow 0.03s ease;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3)
 }
 
-
-
-#description:hover {
+.cards_container:hover {
     box-shadow: 0px 25px 50px -12px rgba(0, 0, 0, 0.3);
 }
+.card_left {
+grid-column-start: 1;
+}
+.card_right {
+    grid-column-start: 2;
+}
 
+/* Images */
 
-aside {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    align-items: center;
-    justify-content: column;
+.theme_image {
+    width: 100%;
+}
+
+/* Form prompt text styles */
+.prompt {
+    font-weight: lighter;
+    font-size: smaller;
+    font-style: italic;
+}
+
+form div {
+    border: 2px solid #ccc;
+    padding: 10px;
     margin-bottom: 10px;
 }
 
-#campus {
-    width: 100%;
-    height: auto;
-    border-top: 10px;
+.asterisk {
+    color: #982929;
 }
 
-#campus_2 {
-    width: 100%;
-    max-height: auto;
-    align-self: center;
-    border: 20%;
+label {
+    max-width: 350px;
+    display: inline-block;
+    text-align: right;
 }
 
-.cards-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    align-items: center;
-    justify-content: column;
+#radio_label,
+#skills p label {
+    text-align: left;
+    margin-right: 10px;
 }
-
-@media (min-width: auto) {
-    .cards-container {
-        flex-direction: row;
-    }
-}
-
-.card {
-    display: flex;
-    justify-content: center;
-    background: crimson;
-    padding: 5em;
-    border-radius: 10px;
-    width: 50%;
-    transition: box-shadow 0.03s ease;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3)
-}
-
-.card:hover {
-    box-shadow: 0px 25px 50px -12px rgba(0, 0, 0, 0.3);
-}
-
-.card-box {
-    background-color: lightcyan;
-    color: black;
-    font-weight: bold;
-    text-align: center;
+/* Footer style */
+footer {
+    margin: 5%;
     padding: 1em;
-    border-radius: 15px;
-    margin-right: 25px;
-    min-width: ;
 }
 
-.card-content h2 {
-    margin-top: 0;
-    font-size: ;
-
+footer p {
+    font-style: italic;
+    display: inline-block;
+    width: 33%;
 }
 
-.card-content p {
-    line-height: 1.6;
+footer p:first-child {
+    float: left;
+}
+
+footer p:nth-child(2) {
+    text-align: center;
+}
+
+footer p:last-child {
+    float: right;
+    text-align: right;
+}
+footer a {
+    text-decoration: none;
     color: black;
 }
 
-.navigation_on_home {
-    align-self: center;
+/* Button style */
+.button {
+    color: white;
+    background-color: black;
+    border: none;
+    padding: 0.5em 1em;
+    font-size: 1em;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
 }
 
 .navigation_on_home {
@@ -583,4 +615,22 @@ footer a:focus {
   #nav_list li a {
     padding: 0.8em;
   }
+}
+.button:hover {
+    background-color: red;
+    color: white;
+}
+
+/* Inline link style */
+.inline_link {
+    color: rgb(0,0,0);
+}
+
+.inline_link:hover {
+    text-decoration: underline;
+}
+
+/* Job section */
+#section_two {
+  float: left;
 }
