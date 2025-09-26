@@ -93,117 +93,28 @@ article {
     padding 5px;
 }
 
+/* index page style */
 
-/*
-
-index.html <body> starts here >>>>
-
-*/
-
-#description {
+.cards_container {
     display: flex;
     justify-content: center;
-    background: gray;
+    align-items: stretch;
+    flex-direction: column;
+    gap: 20px;
+    background-image: url(images/fade.jpg);
+    background-repeat: repeat-x;
+    background-size: contain;
     padding: 5em;
+    margin: 5%;
     border-radius: 15px;
-    width: 50%;
-    transition: box-shadow 0.03s ease;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3)
 }
 
-#description:hover {
+.cards_container:hover {
     box-shadow: 0px 25px 50px -12px rgba(0, 0, 0, 0.3);
 }
 
-aside {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    align-items: center;
-    justify-content: column;
-    margin-bottom: 10px;
-}
-
-#campus {
+.theme_image {
     width: 100%;
-    height: auto;
-    border-top: 10px;
-}
-
-#campus_2 {
-    width: 100%;
-    max-height: auto;
-    align-self: center;
-    border: 20%;
-}
-
-.cards-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    align-items: center;
-    justify-content: column;
-}
-
-@media (min-width: auto) {
-    .cards-container {
-        flex-direction: row;
-    }
-}
-
-.card {
-    display: flex;
-    justify-content: center;
-    background: crimson;
-    padding: 5em;
-    border-radius: 10px;
-    width: 50%;
-    transition: box-shadow 0.03s ease;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3)
-}
-
-.card:hover {
-    box-shadow: 0px 25px 50px -12px rgba(0, 0, 0, 0.3);
-}
-
-.card-box {
-    background-color: lightcyan;
-    color: black;
-    font-weight: bold;
-    text-align: center;
-    padding: 1em;
-    border-radius: 15px;
-    margin-right: 25px;
-    min-width: ;
-}
-
-.card-content h2 {
-    margin-top: 0;
-    font-size: ;
-
-}
-
-.card-content p {
-    line-height: 1.6;
-    color: black;
-}
-
-.navigation_on_home {
-    align-self: center;
-}
-
-.navigation_on_home {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: column;
-    border-radius: 15px;
-    color: lightcyan;
-    background-color: crimson;
-    max-width: 15%;
-    height: auto;
-    align-self: center;
-    margin-bottom: 10px;
 }
 
 /* Form prompt text styles */
