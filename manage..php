@@ -1,4 +1,15 @@
 <?php
+// Create or resume session and enable session variables 
+session_start();
+
+// Settings file with database conncetion details
+require_once("settings.php");
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
