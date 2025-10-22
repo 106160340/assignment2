@@ -8,7 +8,7 @@ require_once("settings.php");
 
 
 
-
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -25,4 +25,13 @@ require_once("settings.php");
     <!-- References to external responsive CSS file -->
     <link href="styles/responsive.css" rel="stylesheet" media="screen and (max-width: 3840px)" />
 </head>
+
+<body>
+    <h1?> EOI Manager </h1?>
+
+    <!-- List all EOIs button -->
+     <form method="post>
+        <input id="submit" type="submit" value="List All EOIs" />
+        
+</body>
 
