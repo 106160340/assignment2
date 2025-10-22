@@ -31,14 +31,23 @@ require_once("settings.php");
 
     <!-- List all EOIs button form -->
     <form method="post">
-        <input type="submit" name="action" value="List All EOIs">List All EOIs/>
+        <input type="submit" name="filter" value="List All EOIs">List All EOIs/>
     </form>
 
     <!-- List by Job Reference -->
     <form method="post">
         <label>Job Reference:</label>
         <input type="text" name="job_ref" required>
-        <input type="submit" name="action" value="list_by_job_ref">Search</input>
+        <input type="submit" name="filter" value="list_by_job_ref">Search</input>
+    </form>
+
+    <!-- List by Applicant Name -->
+    <form method="post">
+        <label>First Name:</label>
+        <input type="text" name="first_name">
+        <label>Last Name:</label>
+        <input type="text" name="last_name">
+        <button type="submit" name="filter" value="list_by_name">Search</button>
     </form>
 
     
