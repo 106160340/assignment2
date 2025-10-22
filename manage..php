@@ -73,7 +73,7 @@ require_once("settings.php");
     <?php
         // Check if filter button clicked
         if (isset($_POST['filter'])) {
-            $filter = $_POST['filter'];
+            $filter = mysqli_real_escape_string($_POST['filter']);
         }
 
     ?>
