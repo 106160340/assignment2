@@ -1,4 +1,4 @@
-<?php
+f<?php
 // Create or resume session and enable session variables 
 session_start();
 
@@ -29,9 +29,19 @@ require_once("settings.php");
 <body>
     <h1?> EOI Manager </h1?>
 
-    <!-- List all EOIs button -->
-     <form method="post>
-        <input id="submit" type="submit" value="List All EOIs" />
-        
+    <!-- List all EOIs button form -->
+    <form method="post">
+        <input type="submit" name="action" value="List All EOIs">List All EOIs/>
+    </form>
+
+    <!-- List by Job Reference -->
+    <form method="post">
+        <label>Job Reference:</label>
+        <input type="text" name="job_ref" required>
+        <input type="submit" name="action" value="list_by_job_ref">Search</input>
+    </form>
+
+    
+
 </body>
 
