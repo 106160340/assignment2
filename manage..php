@@ -47,7 +47,14 @@ require_once("settings.php");
         <input type="text" name="first_name">
         <label>Last Name:</label>
         <input type="text" name="last_name">
-        <button type="submit" name="filter" value="list_by_name">Search</button>
+        <input type="submit" name="filter" value="list_by_name">Search</input>
+    </form>
+
+    <!-- Delete all EOIs by a given job reference -->
+    <form method="post">
+        <label>Delete All EOIs Using Job Reference</label>
+        <input type="text" name="eoi_delete" required>
+        <input type="submit" name="filter" value="delete_eois">Delete</input>
     </form>
 
     
