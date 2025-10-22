@@ -57,6 +57,18 @@ require_once("settings.php");
         <input type="submit" name="filter" value="delete_eois">Delete</input>
     </form>
 
+    <!-- Change EOI Status -->
+    <form method="post">
+        <label>EOI Number:</label>
+        <input type="text" name="eoi_number" required>
+        <label>Update Status:</label>
+        <select name="change_status">
+            <option value="New">New</option>
+            <option value="Current">Current</option>
+            <option value="Final">Final</option>
+        </select>
+        <button type="submit" name="filter" value="update_status">Update</button>
+    </form>
     
 
 </body>
