@@ -67,9 +67,17 @@ require_once("settings.php");
             <option value="Current">Current</option>
             <option value="Final">Final</option>
         </select>
-        <button type="submit" name="filter" value="update_status">Update</button>
+        <input type="submit" name="filter" value="update_status">Update</input>
     </form>
     
+    <?php
+        // Check if filter button clicked
+        if (isset($_POST['filter'])) {
+            $filter = $_POST['filter'];
+        }
+
+    ?>
 
 </body>
+</html>
 
