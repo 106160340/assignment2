@@ -31,9 +31,9 @@ if (!$dbconn) {
     <meta name="HR" content="State University HR team" />
     <title>Manage</title>
     <!-- References to external CSS files-->
-    <link rel="stylesheet" type="text/css" href="styles/style.css" />
+    <!--<link rel="stylesheet" type="text/css" href="styles/style.css" />-->
     <!-- References to external responsive CSS file -->
-    <link href="styles/responsive.css" rel="stylesheet" media="screen and (max-width: 3840px)" />
+    <!--<link href="styles/responsive.css" rel="stylesheet" media="screen and (max-width: 3840px)" />-->
 </head>
 
 <body>
@@ -41,7 +41,7 @@ if (!$dbconn) {
 
     <!-- List all EOIs button form -->
     <form method="post">
-        <input type="submit" name="filter" value="list_all_eois">List All EOIs/>
+        <button type="submit" name="filter" value="list_all_eois">List All EOIs</button>
     </form>
 
     <!-- List by Job Reference -->
@@ -49,21 +49,22 @@ if (!$dbconn) {
         <label>Job Reference:</label>
         <input type="text" name="job_ref" required>
         <button type="submit" name="filter" value="list_by_job_ref">Search</button>
-  
+    </form>
+    
     <!-- List by Applicant Name -->
     <form method="post">
         <label>First Name:</label>
         <input type="text" name="first_name">
         <label>Last Name:</label>
         <input type="text" name="last_name">
-        <input type="submit" name="filter" value="list_by_name">Search</input>
+        <button type="submit" name="filter" value="list_by_name">Search</button>
     </form>
 
     <!-- Delete all EOIs by a given job reference -->
     <form method="post">
         <label>Delete All EOIs Using Job Reference</label>
         <input type="text" name="eoi_delete" required>
-        <input type="submit" name="filter" value="delete_eois">Delete</input>
+        <button type="submit" name="filter" value="delete_eois">Delete</button>
     </form>
 
     <!-- Sort field for results -->
@@ -83,7 +84,7 @@ if (!$dbconn) {
             <option value="date_of_birth" <?php if(isset($_POST['sort_field']) && $_POST['sort_field'] == 'date_of_birth') echo 'selected'; ?>>Date of Birth</option>
             <option value="gender" <?php if(isset($_POST['sort_field']) && $_POST['sort_field'] == 'gender') echo 'selected'; ?>>Gender</option>
         </select>
-        <input type="hidden" name="filter" value="sort_results">
+        <button type="hidden" name="filter" value="sort_results"></button>
     </form>
 
     
