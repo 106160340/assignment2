@@ -48,9 +48,8 @@ if (!$dbconn) {
     <form method="post">
         <label>Job Reference:</label>
         <input type="text" name="job_ref" required>
-        <input type="submit" name="filter" value="list_by_job_ref">Search</input>
-    </form>
-
+        <button type="submit" name="filter" value="list_by_job_ref">Search</button>
+  
     <!-- List by Applicant Name -->
     <form method="post">
         <label>First Name:</label>
