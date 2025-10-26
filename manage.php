@@ -156,7 +156,7 @@ if (!$dbconn) {
             else if ($filter === "list_by_job_ref") {
                 $job_ref = trim($_POST['job_ref']);
                 $sql = "SELECT * FROM eoi WHERE job_ref = '$job_ref'";
-                $result = mysqli_query($conn, $sql);
+                $result = mysqli_query($dbconn, $sql);
 
                 if (mysqli_num_rows($result) > 0) {
                     echo "<h2>EOIs for Job Reference: $job_ref</h2>";
@@ -171,7 +171,7 @@ if (!$dbconn) {
                 $first_name = trim($_POST['first_name']);
                 $last_name = trim($_POST['last_name']);
                 $sql = "SELECT * FROM eoi WHERE first_name LIKE '%$first_name%' OR last_name LIKE '%$last_name%'";
-                $result = mysqli_query($conn, $sql);
+                $result = mysqli_query($dbconn, $sql);
 
                 if (mysqli_num_rows($result) > 0) {
                     EOITable($result);
@@ -184,9 +184,9 @@ if (!$dbconn) {
             else if ($filter === "delete_eios") {
                 $eoi_delete = trim($_POST['eoi_delete']);
                 $sql = "DELETE FROM eoi WHERE job_ref = 'eoi_delete'";
-                $result = mysqli_query($conn, $sql);
+                $result = mysqli_query($dbconn, $sql);
 
-                if (mysqli_affected_rows($conn) > 0) {
+                if (mysqli_affected_rows($result) > 0) {
                     echo "<p>All EOIs for Job Reference '$eoi_delete' have been deleted.</p>";
                 } else {
                     echo "<p>No EOIs found with Job Reference '$eoi_delete.</p>";
@@ -196,7 +196,7 @@ if (!$dbconn) {
                 $eoi_number = $_POST['eoi_number'];
                 $new_status = $_POST['change_status'];
                 $sql = "UPDATE eoi SET status = '$new_status' WHERE eoi_id = '$eoi_number'";
-                $result = mysqli_query($conn, $sql);
+                mysqli_query($dbconn, $sql);
             }
 
         }
