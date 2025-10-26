@@ -166,7 +166,7 @@ if (!$dbconn) {
                 }
            
             }
-            // List EOIs according to first name, last name or both
+            // List EOIs according to first name, last name or both query
             else if ($filter === "list_by_name") {
                 $first_name = trim($_POST['first_name']);
                 $last_name = trim($_POST['last_name']);
@@ -180,7 +180,7 @@ if (!$dbconn) {
                 }
            
             }
-            //  Delete all EOIs by a given job ref
+            //  Delete all EOIs by a given job ref query
             else if ($filter === "delete_eios") {
                 $eoi_delete = trim($_POST['eoi_delete']);
                 $sql = "DELETE FROM eoi WHERE job_ref = 'eoi_delete'";
@@ -192,12 +192,27 @@ if (!$dbconn) {
                     echo "<p>No EOIs found with Job Reference '$eoi_delete.</p>";
                 }
             }
+            // Change EOI status query
             else if ($filter === "update_status") {
                 $eoi_number = $_POST['eoi_number'];
                 $new_status = $_POST['change_status'];
                 $sql = "UPDATE eoi SET status = '$new_status' WHERE eoi_id = '$eoi_number'";
                 mysqli_query($dbconn, $sql);
             }
+            // Sort field for results (Ascending)
+            else if ($filter === "sort_results") {
+                $field = $_POST['sort_field'];
+                // ascending order (A-Z / 0-9)
+                $sql = "SELECT * FROM eoi ORDER BY $field ASC";
+                $result = mysqli_query($conn, $sql);
+
+                if (mysqli_num_rows($result) > 0) {
+                    displayEOITable($result);
+                } else {
+                    echo "<p>No results found to sort.</p>";
+                }
+            }
+
 
         }
 
