@@ -50,7 +50,7 @@ if (!$dbconn) {
         <input type="text" name="job_ref" required>
         <button type="submit" name="filter" value="list_by_job_ref">Search</button>
     </form>
-    
+
     <!-- List by Applicant Name -->
     <form method="post">
         <label>First Name:</label>
