@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 22, 2025 at 03:42 PM
+-- Generation Time: Oct 26, 2025 at 02:43 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -120,6 +120,28 @@ INSERT INTO `responsibility` (`resp_id`, `resp_item`, `ref_num`) VALUES
 (6, 'Collect, filter, and organize research data from various sources. ', 'RA025'),
 (7, 'Assist with academic staff with creating and finalizing research reports.', 'RA025');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `user_id` int(11) NOT NULL,
+  `password_hash` varchar(100) NOT NULL,
+  `role` enum('user','admin') NOT NULL,
+  `username` varchar(50) NOT NULL DEFAULT 'tempuser'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`user_id`, `password_hash`, `role`, `username`) VALUES
+(1, '$2y$10$emi.Wb/i4hWy1C6eiRgXlOxXvBSg2RXxo3sNwe16kJ8g0ezlB8AYe', 'admin', 'admin'),
+(2, '$2y$10$HKg6gwxrL7Ogzut5McHbi.70ZazEBZzHKetO4k9L1ADtDfd1eIqSC', 'user', 'yitian'),
+(3, '$2y$10$Vc3LrzKj2tR.3d8NtvQkCu3AB/hi50VWghc7bb7bfquXJ4FOcJk3u', 'user', 'player');
+
 --
 -- Indexes for dumped tables
 --
@@ -153,6 +175,13 @@ ALTER TABLE `responsibility`
   ADD KEY `ref_num` (`ref_num`);
 
 --
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`user_id`),
+  ADD UNIQUE KEY `username` (`username`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -179,6 +208,12 @@ ALTER TABLE `preferable`
 --
 ALTER TABLE `responsibility`
   MODIFY `resp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
