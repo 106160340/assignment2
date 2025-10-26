@@ -32,7 +32,7 @@ if (!$dbconn) {
 </head>
 
 <body>
-    <h1?> EOI Manager </h1?>
+    <h1>EOI Manager</h1>
 
     <!-- List all EOIs button form -->
     <form method="post">
@@ -86,7 +86,7 @@ if (!$dbconn) {
     <?php
         // Check if 'filter' button clicked
         if (isset($_POST['filter'])) {
-            $filter = mysqli_real_escape_string($_POST['filter']);
+            $filter = mysqli_real_escape_string($dbconn, $_POST['filter']);
 
             // I used a function to store the code that makes the table so I don't have to repeatedly use this long code for each sql query.
             function EOITable($result) {
@@ -109,29 +109,29 @@ if (!$dbconn) {
                         <th>Status</th>
                      </tr>";
 
-                while ($row = mysqli_fetch_assoc($filter)) {
+                while ($row = mysqli_fetch_assoc($result)) {
                     echo "<tr>";
-                    echo "<td>{$row['eoi_id']}</td>";
-                    echo "<td>{$row['job_ref']}</td>";
-                    echo "<td>{$row['first_name']}</td>";
-                    echo "<td>{$row['last_name']}</td>";
-                    echo "<td>{$row['date_of_birth']}</td>";
-                    echo "<td>{$row['gender']}</td>";
-                    echo "<td>{$row['street']}</td>";
-                    echo "<td>{$row['suburb']}</td>";
-                    echo "<td>{$row['state']}</td>";
-                    echo "<td>{$row['postcode']}</td>";
-                    echo "<td>{$row['email']}</td>";
-                    echo "<td>{$row['phone']}</td>";
-                    echo "<td>{$row['skills']}</td>";
-                    echo "<td>{$row['other_skill_text']}</td>";
+                    echo "<td>" . htmlspecialchars($row['eoi_id']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['job_ref']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['first_name']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['last_name']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['date_of_birth']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['gender']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['street']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['suburb']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['state']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['postcode']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['email']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['phone']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['skills']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['other_skill_text']) . "</td>";
                     echo "<td>
                         <form method='post'>
-                            <input type='hidden' name='eoi_number' value='{$row['eoi_id']}'>
+                            <input type='hidden' name='eoi_number' value='" . htmlspecialchars($row['eoi_id']) . "'>
                             <select name='change_status' onchange='this.form.submit()'>
-                                <option value='New' "     . ($row['status'] == 'New' ? 'selected' : '') . ">New</option>
-                                <option value='Current' " . ($row['status'] == 'Current' ? 'selected' : '') . ">Current</option>
-                                <option value='Final' "   . ($row['status'] == 'Final' ? 'selected' : '') . ">Final</option>
+                                <option value='New' ".($row['status'] == 'New' ? 'selected' : '') . ">New</option>
+                                <option value='Current' ".($row['status'] == 'Current' ? 'selected' : '') . ">Current</option>
+                                <option value='Final' ".($row['status'] == 'Final' ? 'selected' : '') . ">Final</option>
                             </select>
                             <input type='hidden' name='filter' value='update_status'>
                         </form>
@@ -162,7 +162,7 @@ if (!$dbconn) {
                     echo "<h2>EOIs for Job Reference: $job_ref</h2>";
                     EOITable($result);
                 } else {
-                    echo "<p>No EOIs found for Job Reference: $job_ref</p>";
+                    echo "<p>No EOIs found for Job Reference: " . htmlspecialchars($job_ref) . "</p>";
                 }
            
             }
@@ -176,14 +176,14 @@ if (!$dbconn) {
                 if (mysqli_num_rows($result) > 0) {
                     EOITable($result);
                 } else {
-                    echo "<p>No EOIs found for Job Reference: $job_ref</p>";
+                    echo "<p>No EOIs found matching that name.</p>";
                 }
            
             }
             //  Delete all EOIs by a given job ref query
-            else if ($filter === "delete_eios") {
+            else if ($filter === "delete_eois") {
                 $eoi_delete = trim($_POST['eoi_delete']);
-                $sql = "DELETE FROM eoi WHERE job_ref = 'eoi_delete'";
+                $sql = "DELETE FROM eoi WHERE job_ref = '$eoi_delete'";
                 $result = mysqli_query($dbconn, $sql);
 
                 if (mysqli_affected_rows($result) > 0) {
@@ -207,7 +207,7 @@ if (!$dbconn) {
                 $result = mysqli_query($conn, $sql);
 
                 if (mysqli_num_rows($result) > 0) {
-                    displayEOITable($result);
+                    EOITable($result);
                 } else {
                     echo "<p>No results found to sort.</p>";
                 }
