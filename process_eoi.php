@@ -37,6 +37,11 @@ Create Table if not Exist eoi (
     skills TEXT,
     other_skill_text VARCHAR(100),
     status ENUM('New','Current','Final') DEFAULT 'New'
+
+    CONSTRAINT fk_job
+        FOREIGN KEY (job_ref)
+        ON UPDATE CASCADE
+        ON DELETE RESTRICT
 )";
 mysqli_query($conn, $create_table);
 
@@ -112,7 +117,7 @@ if (count($errors) > 0) {
 }
 
 
-// data info databse -------------->
+// data into databse -------------->
 $query = "
 INSERT INTO eoi
 (job_ref, first_name, last_name, date_of_birth, gender, street, suburb, state, postcode, email, phone, skills, other_skill_text)
