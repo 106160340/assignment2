@@ -144,7 +144,6 @@ if (!$dbconn) {
                 }
                 echo "</table>";
             }
-
             // List all EOIs query
             if ($filter === "list_all_eois") {
                 $sql = "SELECT * FROM eoi";
@@ -165,7 +164,7 @@ if (!$dbconn) {
                 $result = $stmt->get_result();
 
                 if (mysqli_num_rows($result) > 0) {
-                    echo "<h2>EOIs for Job Reference: " . htmlspecialchars( $job_ref) . "</h2>";
+                    echo "<h2>EOIs for Job Reference: " . htmlspecialchars($job_ref) . "</h2>";
                     EOITable($result);
                 } else {
                     echo "<p>No EOIs found for Job Reference: " . htmlspecialchars($job_ref) . "</p>";
@@ -220,7 +219,7 @@ if (!$dbconn) {
                 $field = $_POST['sort_field'];
                 // ascending order (A-Z / 0-9)
                 $sql = "SELECT * FROM eoi ORDER BY $field ASC";
-                $result = mysqli_query($conn, $sql);
+                $result = mysqli_query($dbconn, $sql);
 
                 if (mysqli_num_rows($result) > 0) {
                     EOITable($result);
