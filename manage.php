@@ -61,6 +61,27 @@ if (!$dbconn) {
         <input type="text" name="eoi_delete" required>
         <input type="submit" name="filter" value="delete_eois">Delete</input>
     </form>
+
+    <!-- Sort field for results -->
+    <form method="post">
+        <label>Sort By:</label>
+        <select name="sort_field" required>
+            <option value="eoi_id">EOI ID (default)</option>
+            <option value="job_ref">Job Reference</option>
+            <option value="first_name">First Name</option>
+            <option value="last_name">Last Name</option>
+            <option value="status">Status</option>
+            <option value="email">Email</option>
+            <option value="phone">Phone</option>
+            <option value="state">State</option>
+            <option value="suburb">Suburb</option>
+            <option value="postcode">Postcode</option>
+            <option value="date_of_birth">Date of Birth</option>
+            <option value="gender">Gender</option>
+        </select>
+        <input type="hidden" name="filter" value="sort_results">
+    </form>
+
     
     <?php
         // Check if 'filter' button clicked
