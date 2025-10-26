@@ -69,7 +69,7 @@ if (!$dbconn) {
     <!-- Sort field for results -->
     <form method="post">
         <label>Sort By:</label>
-        <select name="sort_field" required>
+        <select name="sort_field" required onchange="this.form.submit()">
             <option value="eoi_id">EOI ID (default)</option>
             <option value="job_ref">Job Reference</option>
             <option value="first_name">First Name</option>
@@ -90,11 +90,11 @@ if (!$dbconn) {
     <?php
         // Check if 'filter' button clicked
         if (isset($_POST['filter'])) {
-            $filter = mysqli_real_escape_string($dbconn, $_POST['filter']);
+            $filter = $_POST['filter'];
 
             // I used a function to store the code that makes the table so I don't have to repeatedly use this long code for each sql query.
             function EOITable($result) {
-                echo "<table border='1' cellpadding='10'";
+                echo "<table border='1' cellpadding='10'>";
                 echo "<tr>
                         <th>EOI ID</th>
                         <th>Job Ref</th>
@@ -169,7 +169,7 @@ if (!$dbconn) {
                 } else {
                     echo "<p>No EOIs found for Job Reference: " . htmlspecialchars($job_ref) . "</p>";
                 }
-           
+                 $stmt->close();
             }
             // List EOIs according to first name, last name or both query
             else if ($filter === "list_by_name") {
@@ -185,7 +185,7 @@ if (!$dbconn) {
                 } else {
                     echo "<p>No EOIs found matching that name.</p>";
                 }
-           
+                 $stmt->close();
             }
             //  Delete all EOIs by a given job ref query
             else if ($filter === "delete_eois") {
@@ -193,13 +193,13 @@ if (!$dbconn) {
                 $stmt = $dbconn->prepare("DELETE FROM eoi WHERE job_ref = ?");
                 $stmt->bind_param("s", $eoi_delete);
                 $stmt->execute();
-                $result = $stmt->get_result();
 
-                if (mysqli_affected_rows($result) > 0) {
-                    echo "<p>All EOIs for Job Reference " . htmlspecialchars($eoi_delete) . "' have been deleted.</p>";
+                if ($stmt->affected_rows > 0) {
+                    echo "<p>All EOIs for Job Reference " . htmlspecialchars($eoi_delete) . " have been deleted.</p>";
                 } else {
                     echo "<p>No EOIs found with Job Reference " . htmlspecialchars($eoi_delete) . "</p>";
                 }
+                 $stmt->close();
             }
             // Change EOI status query
             else if ($filter === "update_status") {
@@ -208,7 +208,7 @@ if (!$dbconn) {
                 $stmt = $dbconn->prepare("UPDATE eoi SET status = ? WHERE eoi_id = ?");
                 $stmt->bind_param("si", $new_status, $eoi_number);
                 $stmt->execute();
-                $result = $stmt->get_result();
+                $stmt->close();
 
                 // Refresh page after update
                 header("Location: manage.php");
