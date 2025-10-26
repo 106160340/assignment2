@@ -61,19 +61,6 @@ if (!$dbconn) {
         <input type="text" name="eoi_delete" required>
         <input type="submit" name="filter" value="delete_eois">Delete</input>
     </form>
-
-    <!-- Change EOI Status -->
-    <form method="post">
-        <label>EOI Number:</label>
-        <input type="text" name="eoi_number" required>
-        <label>Update Status:</label>
-        <select name="change_status">
-            <option value="New">New</option>
-            <option value="Current">Current</option>
-            <option value="Final">Final</option>
-        </select>
-        <input type="submit" name="filter" value="update_status">Update</input>
-    </form>
     
     <?php
         // Check if 'filter' button clicked
@@ -117,7 +104,17 @@ if (!$dbconn) {
                     echo "<td>{$row['phone']}</td>";
                     echo "<td>{$row['skills']}</td>";
                     echo "<td>{$row['other_skill_text']}</td>";
-                    echo "<td>{$row['status']}</td>";
+                    echo "<td>
+                        <form method='post'>
+                            <input type='hidden' name='eoi_number' value='{$row['eoi_id']}'>
+                            <select name='change_status' onchange='this.form.submit()'>
+                                <option value='New' "     . ($row['status'] == 'New' ? 'selected' : '') . ">New</option>
+                                <option value='Current' " . ($row['status'] == 'Current' ? 'selected' : '') . ">Current</option>
+                                <option value='Final' "   . ($row['status'] == 'Final' ? 'selected' : '') . ">Final</option>
+                            </select>
+                            <input type='hidden' name='filter' value='update_status'>
+                        </form>
+                        </td>";
                     echo "</tr>";
                 }
                 echo "</table>";
