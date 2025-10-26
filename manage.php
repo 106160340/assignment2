@@ -1,4 +1,4 @@
-f<?php
+<?php
 // Create or resume session and enable session variables 
 session_start();
 
@@ -164,14 +164,14 @@ if (!$dbconn) {
             }
             //  Delete all EOIs by a given job ref
             else if ($filter === "delete_eios") {
-                $delete_eois_job_ref = trim($_POST['delete_eois_job_ref']);
-                $sql = "DELETE FROM eoi WHERE job_ref = '$delete_eois_job_ref'";
+                $eoi_delete = trim($_POST['eoi_delete']);
+                $sql = "DELETE FROM eoi WHERE job_ref = 'eoi_delete'";
                 $result = mysqli_query($conn, $sql);
 
                 if (mysqli_affected_rows($conn) > 0) {
-                    echo "<p>All EOIs for Job Reference '$delete_eois_job_ref' have been deleted.</p>";
+                    echo "<p>All EOIs for Job Reference '$eoi_delete' have been deleted.</p>";
                 } else {
-                    echo "<p>No EOIs found with Job Reference '$delete_eois_job_ref.</p>";
+                    echo "<p>No EOIs found with Job Reference '$eoi_delete.</p>";
                 }
             }
         }
