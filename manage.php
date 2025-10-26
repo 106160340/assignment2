@@ -168,7 +168,7 @@ if (!$dbconn) {
                 $result = $stmt->get_result();
 
                 if (mysqli_num_rows($result) > 0) {
-                    echo "<h2>EOIs for Job Reference: " . htmlspecialchars($job_ref) . "</h2>";
+
                     EOITable($result);
                 } else {
                     echo "<p>No EOIs found for Job Reference: " . htmlspecialchars($job_ref) . "</p>";
