@@ -26,32 +26,42 @@
   <section id="contributions" aria-labelledby="contributions-title">
     <h2 id="contributions-title">Group Contributions</h2>
 
-    <?php
-      // Connect to database
-      include 'settingsabout.php';
-      $conn = @mysqli_connect($host, $user, $pwd, $sql_db);
+<?php
+include 'settings.php';
+$conn = @mysqli_connect($host, $user, $pwd, $sql_db);
 
-      if (!$conn) {
-          echo "<p>Database connection failed. Please check your settings.php.</p>";
-      } else {
-          $query = "SELECT * FROM about";
-          $result = mysqli_query($conn, $query);
+if (!$conn) {
+    echo "<p style='color:red;'>Database connection failed: " . mysqli_connect_error() . "</p>";
+} else {
+    $query = "SELECT * FROM about";
+    $result = mysqli_query($conn, $query);
 
-          if ($result && mysqli_num_rows($result) > 0) {
-              echo "<dl>";
-              while ($row = mysqli_fetch_assoc($result)) {
-                  echo "<dt>" . htmlspecialchars($row['full_name']) . " (" . htmlspecialchars($row['student_id']) . ")</dt>";
-                  echo "<dd>" . htmlspecialchars($row['contribution']) . " Favourite language: " . htmlspecialchars($row['favourite_language']) . ".</dd>";
-              }
-              echo "</dl>";
-          } else {
-              echo "<p>No team data found in the database.</p>";
-          }
+    if ($result && mysqli_num_rows($result) > 0) {
+        echo "<section id='group-info'>";
+        echo "<h1>Group Khichuri</h1>";
+        echo "<p>Class Day/Time: Wednesday 12:30 pm</p>";
+        echo "</section>";
 
-          mysqli_close($conn);
-      }
-    ?>
-  </section>
+        echo "<section id='contributions'>";
+        echo "<h2>Team Contributions</h2>";
+
+        while ($row = mysqli_fetch_assoc($result)) {
+            echo "<article class='member'>";
+            echo "<h3>" . htmlspecialchars($row['full_name']) . " (" . htmlspecialchars($row['student_id']) . ")</h3>";
+            echo "<p><strong>Project 1:</strong> " . htmlspecialchars($row['project1_work']) . "</p>";
+            echo "<p><strong>Project 2:</strong> " . htmlspecialchars($row['project2_work']) . "</p>";
+            echo "<p><strong>Favourite Language:</strong> " . htmlspecialchars($row['favourite_language']) . "</p>";
+            echo "</article><hr>";
+        }
+
+        echo "</section>";
+    } else {
+        echo "<p>No member data found.</p>";
+    }
+    mysqli_close($conn);
+}
+?>
+
 
   <!-- Group Photo Section -->
   <section id="group-photo" aria-labelledby="team-title">
