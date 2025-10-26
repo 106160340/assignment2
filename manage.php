@@ -80,55 +80,60 @@ if (!$dbconn) {
         if (isset($_POST['filter'])) {
             $filter = mysqli_real_escape_string($_POST['filter']);
 
+            // I used a function to store the code that makes the table so I don't have to repeatedly use this long code for each sql query.
+            function EOITable($result) {
+                echo "<table border='1' cellpadding='10'";
+                echo "<tr>
+                        <th>EOI ID</th>
+                        <th>Job Ref</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Date of Birth</th>
+                        <th>Gender</th>
+                        <th>Street</th>
+                        <th>Suburb</th>
+                        <th>State</th>
+                        <th>Postcode</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Skills</th>
+                        <th>Other Skill Text</th>
+                        <th>Status</th>
+                     </tr>";
+
+                while ($row = mysqli_fetch_assoc($filter)) {
+                    echo "<tr>";
+                    echo "<td>{$row['eoi_id']}</td>";
+                    echo "<td>{$row['job_ref']}</td>";
+                    echo "<td>{$row['first_name']}</td>";
+                    echo "<td>{$row['last_name']}</td>";
+                    echo "<td>{$row['date_of_birth']}</td>";
+                    echo "<td>{$row['gender']}</td>";
+                    echo "<td>{$row['street']}</td>";
+                    echo "<td>{$row['suburb']}</td>";
+                    echo "<td>{$row['state']}</td>";
+                    echo "<td>{$row['postcode']}</td>";
+                    echo "<td>{$row['email']}</td>";
+                    echo "<td>{$row['phone']}</td>";
+                    echo "<td>{$row['skills']}</td>";
+                    echo "<td>{$row['other_skill_text']}</td>";
+                    echo "<td>{$row['status']}</td>";
+                    echo "</tr>";
+                }
+                echo "</table>";
+            }
+
             // List all EOIs query
             if ($filter === "list_all_eois") {
                 $sql = "SELECT * FROM eoi";
                 $result = mysqli_query($dbconn, $sql);
 
                  if (mysqli_num_rows($filter) > 0) {
-                    echo "<table border='1' cellpadding='10'";
-                    echo "<tr>
-                            <th>EOI ID</th>
-                            <th>Job Ref</th>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Date of Birth</th>
-                            <th>Gender</th>
-                            <th>Street</th>
-                            <th>Suburb</th>
-                            <th>State</th>
-                            <th>Postcode</th>
-                            <th>Email</th>
-                            <th>Phone</th>
-                            <th>Skills</th>
-                            <th>Other Skill Text</th>
-                            <th>Status</th>
-                        </tr>";
-
-                    while ($row = mysqli_fetch_assoc($filter)) {
-                        echo "<tr>";
-                        echo "<td>{$row['eoi_id']}</td>";
-                        echo "<td>{$row['job_ref']}</td>";
-                        echo "<td>{$row['first_name']}</td>";
-                        echo "<td>{$row['last_name']}</td>";
-                        echo "<td>{$row['date_of_birth']}</td>";
-                        echo "<td>{$row['gender']}</td>";
-                        echo "<td>{$row['street']}</td>";
-                        echo "<td>{$row['suburb']}</td>";
-                        echo "<td>{$row['state']}</td>";
-                        echo "<td>{$row['postcode']}</td>";
-                        echo "<td>{$row['email']}</td>";
-                        echo "<td>{$row['phone']}</td>";
-                        echo "<td>{$row['skills']}</td>";
-                        echo "<td>{$row['other_skill_text']}</td>";
-                        echo "<td>{$row['status']}</td>";
-                        echo "</tr>";
-                    }
-                    echo "</table>";
+                    EOITable($result);
                 } else {
                     echo "<p>No EOIs found.</p>";
                 }
-            
+           
             }
         }
 
