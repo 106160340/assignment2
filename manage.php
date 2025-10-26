@@ -88,6 +88,10 @@ if (!$dbconn) {
 
     
     <?php
+        // List all EOIs upon loading into page
+        if (!isset($_POST['filter'])) {
+            $_POST['filter'] = "list_all_eois";
+        }
         // Check if 'filter' button clicked
         if (isset($_POST['filter'])) {
             $filter = $_POST['filter'];
@@ -227,8 +231,6 @@ if (!$dbconn) {
                     echo "<p>No results found to sort.</p>";
                 }
             }
-
-
         }
 
     ?>
