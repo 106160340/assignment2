@@ -162,6 +162,18 @@ if (!$dbconn) {
                 }
            
             }
+            //  Delete all EOIs by a given job ref
+            else if ($filter === "delete_eios") {
+                $delete_eois_job_ref = trim($_POST['delete_eois_job_ref']);
+                $sql = "DELETE FROM eoi WHERE job_ref = '$delete_eois_job_ref'";
+                $result = mysqli_query($conn, $sql);
+
+                if (mysqli_affected_rows($conn) > 0) {
+                    echo "<p>All EOIs for Job Reference '$delete_eois_job_ref' have been deleted.</p>";
+                } else {
+                    echo "<p>No EOIs found with Job Reference '$delete_eois_job_ref.</p>";
+                }
+            }
         }
 
     ?>
