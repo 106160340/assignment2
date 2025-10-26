@@ -84,7 +84,7 @@ if (!$dbconn) {
             <option value="date_of_birth" <?php if(isset($_POST['sort_field']) && $_POST['sort_field'] == 'date_of_birth') echo 'selected'; ?>>Date of Birth</option>
             <option value="gender" <?php if(isset($_POST['sort_field']) && $_POST['sort_field'] == 'gender') echo 'selected'; ?>>Gender</option>
         </select>
-        <button type="hidden" name="filter" value="sort_results"></button>
+        <input type="hidden" name="filter" value="sort_results">
     </form>
 
     
@@ -154,7 +154,7 @@ if (!$dbconn) {
                 $sql = "SELECT * FROM eoi";
                 $result = mysqli_query($dbconn, $sql);
 
-                 if (mysqli_num_rows($filter) > 0) {
+                 if (mysqli_num_rows($result) > 0) {
                     EOITable($result);
                 } else {
                     echo "<p>No EOIs found.</p>";
