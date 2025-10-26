@@ -171,6 +171,13 @@ if (!$dbconn) {
                     echo "<p>No EOIs found with Job Reference '$eoi_delete.</p>";
                 }
             }
+            else if ($filter === "update_status") {
+                $eoi_number = $_POST['eoi_number'];
+                $new_status = $_POST['change_status'];
+                $sql = "UPDATE eoi SET status = '$new_status' WHERE eoi_id = '$eoi_number'";
+                $result = mysqli_query($conn, $sql);
+            }
+
         }
 
     ?>
