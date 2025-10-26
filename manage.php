@@ -1,6 +1,11 @@
 <?php
 // Create or resume session and enable session variables 
 session_start();
+// check if not $_SESSION['user'], if not redirect to login.php
+if (!isset($_SESSION['user'])) {
+    header("Location: login.php");
+    exit();
+}
 
 // Settings file with database connection details
 require_once("settings.php");
