@@ -2,7 +2,7 @@
 // Create or resume session and enable session variables 
 session_start();
 // check if not $_SESSION['user'], if not redirect to login.php
-if (!isset($_SESSION['user'])) {
+if (!isset($_SESSION['user']) || $_SESSION['role'] !== 'admin') {
     header("Location: login.php");
     exit();
 }
