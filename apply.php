@@ -1,43 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="utf-8" />
-    <meta name="description" content="State University job ads" />
-    <meta name="keywords"
-        content="University, jobs, research, digital, computer science, technology, position, IT, application, salary package" />
-    <meta name="author" content="State University HR team" />
-    <meta name="viewport" content="width=device-width, initial scale=1.0">
-    <!-- Update title field to your page accordingly, this title will be displayed on the browser tab -->
-    <title>Apply</title>
-    <!-- References to external CSS files, should be the same global CSS for consistency, do not edit unless necessary -->
-    <link rel="stylesheet" type="text/css" href="styles/style.css" />
-    <!-- References to external responsive CSS file -->
-    <link href="styles/responsive.css" rel="stylesheet" media="screen and (max-width: 3840px)" />
-    <style>
-    </style>
-    <!-- Add more stylesheets as needed -->
-</head>
-<!-- Following will be displayed on the page -->
+<!-- Header include -->
+<?php include 'header.inc'; ?>
+
+<!-- navigation include -->
+<?php include 'nav.inc'; ?>
+
 
 <body>
-    <!-- Navigation Menu & Header -->
-    <!-- clickable logo and nav menu -->
-    <div class="header" role="banner">
-        <!-- Logo links back to home -->
-        <a href="index.html" aria-label="Go to Home Page">
-            <img src="images/logo.png" alt="State University Logo" title="Logo" class="logo">
-        </a>
-        <!-- Navigation bar with links to all pages -->
-        <nav role="navigation">
-            <ul>
-                <li><a href="about.html">About</a></li>
-                <li><a href="apply.html" aria-current="page">Apply</a></li>
-                <li><a href="jobs.html">Jobs</a></li>
-                <li><a href="index.html">Home</a></li>
-            </ul>
-        </nav>
-    </div>
+
     <!-- Image -->
     <img src="images/university_1.jpg" alt="view of university campus. A tree in front of a building."
         title="State University" class="theme_image">
@@ -209,11 +181,8 @@
             </form>
         </section>
     </article>
-    <footer>
-        <p id="page_title">Apply Page</p>
-        <p id="copyright">&#169; State University</p>
-        <p id="slogan">Stronger Together</p>
-    </footer>
+<!-- footer -->
+ <?php include 'footer.inc' ?>
 </body>
 
 </html>

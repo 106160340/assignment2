@@ -1,4 +1,10 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Header include -->
 <?php include 'header.inc'; ?>
+
+<!-- navigation include -->
 <?php include 'nav.inc'; ?>
 
 <!-- ================= Hero Image ================= -->
@@ -16,48 +22,35 @@
     <p>Class Day/Time: Wednesday 12:30 pm</p>
   </section>
 
-  <!-- Contributions Section -->
+  <!-- Contributions Section (DYNAMIC) -->
   <section id="contributions" aria-labelledby="contributions-title">
     <h2 id="contributions-title">Group Contributions</h2>
-    <dl>
-      <dt>Yitian Yuan (106160340)</dt>
-      <dd>
-        Took responsibility for the job application form on <code>apply.html</code>.
-        This included building the form structure, applying HTML5 validation rules
-        for each input (like reference numbers, email, and phone numbers), and ensuring
-        accessibility with proper labels and fieldsets. Also tested the form thoroughly
-        to make sure it integrates with <code>formtest.php</code>. Favourite language:
-        Python – "<em lang="zh">编程的艺术</em>" (The art of coding).
-      </dd>
 
-      <dt>Ali Jawid, Behzad (106188559)</dt>
-      <dd>
-        Designed and structured the <code>about.html</code> page, ensuring that semantic
-        HTML elements like <code>&lt;dl&gt;</code>, <code>&lt;figure&gt;</code>, and
-        <code>&lt;table&gt;</code> were used correctly. Also worked on unifying the
-        navigation bar across all pages and assisted in CSS simplification for clarity
-        and responsiveness. Favourite language: Java – "<em lang="ps">زبان قوی برای ساختار</em>"
-        (A strong language for structure).
-      </dd>
+    <?php
+      // Connect to database
+      include 'settingsabout.php';
+      $conn = @mysqli_connect($host, $user, $pwd, $sql_db);
 
-      <dt>Yousaff Mohammad (106175315)</dt>
-      <dd>
-        Led the development of the <code>jobs.html</code> page. Created realistic and
-        industry-appropriate job postings, applied semantic HTML with lists and headings,
-        and styled the <code>&lt;aside&gt;</code> section as per requirements. Focused on
-        clarity and readability of job descriptions. Favourite language: C++ –
-        "<em lang="ar">البرمجة عالية الأداء</em>" (High performance programming).
-      </dd>
+      if (!$conn) {
+          echo "<p>Database connection failed. Please check your settings.php.</p>";
+      } else {
+          $query = "SELECT * FROM about";
+          $result = mysqli_query($conn, $query);
 
-      <dt>Ayon Ahammed (105962794)</dt>
-      <dd>
-        Built the <code>index.html</code> home page, including the hero image and
-        company overview. Developed the main navigation and footer design. Worked on
-        deploying the site with GitHub Pages and ensuring the overall branding and
-        layout matched the project brief. Favourite language: JavaScript –
-        "<em lang="bn">প্রযুক্তির ভাষা</em>" (The language of interactivity).
-      </dd>
-    </dl>
+          if ($result && mysqli_num_rows($result) > 0) {
+              echo "<dl>";
+              while ($row = mysqli_fetch_assoc($result)) {
+                  echo "<dt>" . htmlspecialchars($row['full_name']) . " (" . htmlspecialchars($row['student_id']) . ")</dt>";
+                  echo "<dd>" . htmlspecialchars($row['contribution']) . " Favourite language: " . htmlspecialchars($row['favourite_language']) . ".</dd>";
+              }
+              echo "</dl>";
+          } else {
+              echo "<p>No team data found in the database.</p>";
+          }
+
+          mysqli_close($conn);
+      }
+    ?>
   </section>
 
   <!-- Group Photo Section -->
