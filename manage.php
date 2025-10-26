@@ -70,18 +70,18 @@ if (!$dbconn) {
     <form method="post">
         <label>Sort By:</label>
         <select name="sort_field" required onchange="this.form.submit()">
-            <option value="eoi_id">EOI ID (default)</option>
-            <option value="job_ref">Job Reference</option>
-            <option value="first_name">First Name</option>
-            <option value="last_name">Last Name</option>
-            <option value="status">Status</option>
-            <option value="email">Email</option>
-            <option value="phone">Phone</option>
-            <option value="state">State</option>
-            <option value="suburb">Suburb</option>
-            <option value="postcode">Postcode</option>
-            <option value="date_of_birth">Date of Birth</option>
-            <option value="gender">Gender</option>
+            <option value="eoi_id" <?php if(isset($_POST['sort_field']) && $_POST['sort_field'] == 'eoi_id') echo 'selected'; ?>>EOI ID (default)</option>
+            <option value="job_ref" <?php if(isset($_POST['sort_field']) && $_POST['sort_field'] == 'job_ref') echo 'selected'; ?>>Job Reference</option>
+            <option value="first_name" <?php if(isset($_POST['sort_field']) && $_POST['sort_field'] == 'first_name') echo 'selected'; ?>>First Name</option>
+            <option value="last_name" <?php if(isset($_POST['sort_field']) && $_POST['sort_field'] == 'last_name') echo 'selected'; ?>>Last Name</option>
+            <option value="status" <?php if(isset($_POST['sort_field']) && $_POST['sort_field'] == 'status') echo 'selected'; ?>>Status</option>
+            <option value="email" <?php if(isset($_POST['sort_field']) && $_POST['sort_field'] == 'email') echo 'selected'; ?>>Email</option>
+            <option value="phone" <?php if(isset($_POST['sort_field']) && $_POST['sort_field'] == 'phone') echo 'selected'; ?>>Phone</option>
+            <option value="state" <?php if(isset($_POST['sort_field']) && $_POST['sort_field'] == 'state') echo 'selected'; ?>>State</option>
+            <option value="suburb" <?php if(isset($_POST['sort_field']) && $_POST['sort_field'] == 'suburb') echo 'selected'; ?>>Suburb</option>
+            <option value="postcode" <?php if(isset($_POST['sort_field']) && $_POST['sort_field'] == 'postcode') echo 'selected'; ?>>Postcode</option>
+            <option value="date_of_birth" <?php if(isset($_POST['sort_field']) && $_POST['sort_field'] == 'date_of_birth') echo 'selected'; ?>>Date of Birth</option>
+            <option value="gender" <?php if(isset($_POST['sort_field']) && $_POST['sort_field'] == 'gender') echo 'selected'; ?>>Gender</option>
         </select>
         <input type="hidden" name="filter" value="sort_results">
     </form>
