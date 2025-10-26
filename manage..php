@@ -2,11 +2,12 @@ f<?php
 // Create or resume session and enable session variables 
 session_start();
 
-// Settings file with database conncetion details
+// Settings file with database connection details
 require_once("settings.php");
 
 
-
+// Connect to the database
+$conn = mysqli_connect($host, $username, $password, $dbname);
 
 ?>
 
@@ -71,7 +72,7 @@ require_once("settings.php");
     </form>
     
     <?php
-        // Check if filter button clicked
+        // Check if 'filter' button clicked
         if (isset($_POST['filter'])) {
             $filter = mysqli_real_escape_string($_POST['filter']);
         }
