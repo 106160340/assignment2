@@ -133,8 +133,22 @@ if (!$dbconn) {
                 } else {
                     echo "<p>No EOIs found.</p>";
                 }
+            }
+            // List EOIs according to job ref query
+            else if ($filter === "list_by_job_ref") {
+                $job_ref = trim($_POST['job_ref']);
+                $sql = "SELECT * FROM eoi WHERE job_ref = '$job_ref'";
+                $result = mysqli_query($conn, $sql);
+
+                if (mysqli_num_rows($result) > 0) {
+                    echo "<h2>EOIs for Job Reference: $job_ref</h2>";
+                    EOITable($result);
+                } else {
+                    echo "<p>No EOIs found for Job Reference: $job_ref</p>";
+                }
            
             }
+
         }
 
     ?>
