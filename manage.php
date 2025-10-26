@@ -148,7 +148,20 @@ if (!$dbconn) {
                 }
            
             }
+            // List EOIs according to first name, last name or both
+            else if ($filter === "list_by_name") {
+                $first_name = trim($_POST['first_name']);
+                $last_name = trim($_POST['last_name']);
+                $sql = "SELECT * FROM eoi WHERE first_name LIKE '%$first_name%' OR last_name LIKE '%$last_name%'";
+                $result = mysqli_query($conn, $sql);
 
+                if (mysqli_num_rows($result) > 0) {
+                    EOITable($result);
+                } else {
+                    echo "<p>No EOIs found for Job Reference: $job_ref</p>";
+                }
+           
+            }
         }
 
     ?>
