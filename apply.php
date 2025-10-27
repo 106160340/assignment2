@@ -27,7 +27,7 @@
         </section>
         <!-- Forms -->
         <section id="application_form" aria-labelledby="form_heading">
-            <form method="post" action="https://mercury.swin.edu.au/it000000/formtest.php">
+            <form method="post" action="process_eoi.php">
                 <!-- Job details -->
                 <div id="job_details" class="form_section">
                     <h2>Job Details</h2>
@@ -181,8 +181,8 @@
             </form>
         </section>
     </article>
-<!-- footer -->
- <?php include 'footer.inc' ?>
+    <!-- footer -->
+    <?php include 'footer.inc' ?>
 </body>
 
 </html>
