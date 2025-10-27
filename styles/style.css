@@ -126,6 +126,22 @@ h3 {
   grid-column-start: 2;
 }
 
+/* =============== Jobs page =================== */
+
+.job_section {
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 0.5em;
+}
+.job_section div {
+text-align: center;
+color: #fff;
+}
+
+.job_section ul, .job_section ol {
+  list-style-type: none;
+}
 /* =============== FORM ELEMENTS =================== */
 form div {
   border: 2px solid #ccc;
@@ -170,6 +186,7 @@ input[type="reset"] {
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  text-decoration: none;
 }
 
 .button:hover,

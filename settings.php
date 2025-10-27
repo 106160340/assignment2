@@ -1,6 +1,6 @@
 <?php
-$host   = "localhost";
-$user   = "root";
-$pwd    = "";
-$sql_db = "project2_db";
+    $host = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "university_db";
 ?>
