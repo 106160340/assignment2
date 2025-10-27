@@ -13,107 +13,94 @@
 
 <!-- main content -->
 <main id="main-content" role="main">
-    <article id="main">
-        <h1>Current Job Vacancies</h1>
-        <p>
-            Below are current open positions at State University. Click the "Apply Now" button to submit an application for the position of your interest.
-        </p>
+    <h1 id="job_page_heading">Jobs</h1>
+    <article aria-labelledby="job_page_heading">
+        <aside style="font-style: italic;">
+            <p>We want your help to elevate the digital learning experience of our students, while also supporting our
+                academic staff to achieve this goal. </p>
+            <p>Please head to the apply page, so you can help us realize a future where the digital learning and research
+                space is transformed for better. </p>
+        </aside>
+        <hr>
+        <!-- Job Listing -->
+        <?php
+        require_once "settings.php";
 
-        <!-- Job 1 -->
-        <section class="cards_container" aria-labelledby="job1">
-            <div class="card_left">
-                <h2 id="job1">Front-End Web Developer</h2>
-            </div>
-            <div class="card_right">
-                <p>We are seeking a creative and detail-oriented Front-End Web Developer to join our IT Department at State University. You will be responsible for creating user-friendly web interfaces, improving accessibility, and ensuring design consistency across our online platforms.</p>
-                <h3>Job Reference: FE123</h3>
-                <h3>Position Details</h3>
-                <ul>
-                    <li><strong>Location:</strong> Melbourne, VIC</li>
-                    <li><strong>Salary:</strong> $80,000 - $95,000 per annum + superannuation</li>
-                    <li><strong>Contract Type:</strong> Full-time, Ongoing</li>
-                </ul>
-                <h3>Key Responsibilities</h3>
-                <ul>
-                    <li>Design and implement responsive web pages using HTML, CSS, and JavaScript.</li>
-                    <li>Collaborate with UX/UI designers to ensure consistent branding.</li>
-                    <li>Conduct website performance and accessibility testing.</li>
-                    <li>Work closely with back-end developers for API integration.</li>
-                </ul>
-                <h3>Essential Criteria</h3>
-                <ul>
-                    <li>Bachelor’s degree in Computer Science or related field.</li>
-                    <li>Strong proficiency in front-end technologies.</li>
-                    <li>Experience with accessibility standards (WCAG 2.1).</li>
-                    <li>Good communication and teamwork skills.</li>
-                </ul>
-                <a href="apply.php" class="button">Apply Now</a>
-            </div>
-        </section>
+        $dbconn = @mysqli_connect($host, $username, $password, $dbname);
 
-        <!-- Job 2 -->
-        <section class="cards_container" aria-labelledby="job2">
-            <div class="card_left">
-                <h2 id="job2">Cybersecurity Analyst</h2>
-            </div>
-            <div class="card_right">
-                <p>Join the State University Cybersecurity team and help protect critical systems and sensitive data. This role involves proactive threat detection, response planning, and risk analysis to ensure digital safety across our networks.</p>
-                <h3>Job Reference: CS456</h3>
-                <h3>Position Details</h3>
-                <ul>
-                    <li><strong>Location:</strong> Melbourne, VIC</li>
-                    <li><strong>Salary:</strong> $90,000 - $110,000 per annum + benefits</li>
-                    <li><strong>Contract Type:</strong> Full-time, Permanent</li>
-                </ul>
-                <h3>Key Responsibilities</h3>
-                <ul>
-                    <li>Monitor and respond to cybersecurity incidents.</li>
-                    <li>Conduct vulnerability assessments and penetration testing.</li>
-                    <li>Develop and enforce university-wide security policies.</li>
-                    <li>Collaborate with IT staff to implement protective systems.</li>
-                </ul>
-                <h3>Essential Criteria</h3>
-                <ul>
-                    <li>Bachelor’s degree in Cybersecurity, IT, or related discipline.</li>
-                    <li>Knowledge of firewalls, intrusion detection, and SIEM tools.</li>
-                    <li>Understanding of information security frameworks.</li>
-                    <li>Analytical mindset and attention to detail.</li>
-                </ul>
-                <a href="apply.php" class="button">Apply Now</a>
-            </div>
-        </section>
+        if ($dbconn) {
+            $query = "SELECT * FROM jobs";
+            $result = mysqli_query($dbconn, $query);
 
-        <!-- Job 3 -->
-        <section class="cards_container" aria-labelledby="job3">
-            <div class="card_left">
-                <h2 id="job3">Software Engineer (Full Stack)</h2>
-            </div>
-            <div class="card_right">
-                <p>State University’s Digital Systems Team is looking for a skilled Full Stack Engineer who will design, develop, and maintain high-quality applications that support our educational and research services.</p>
-                <h3>Job Reference: SE789</h3>
-                <h3>Position Details</h3>
-                <ul>
-                    <li><strong>Location:</strong> Melbourne, VIC</li>
-                    <li><strong>Salary:</strong> $100,000 - $120,000 per annum + superannuation</li>
-                    <li><strong>Contract Type:</strong> Full-time, Fixed term (2 years)</li>
-                </ul>
-                <h3>Key Responsibilities</h3>
-                <ul>
-                    <li>Develop, test, and deploy web-based systems using modern frameworks.</li>
-                    <li>Implement RESTful APIs and maintain data integrity across platforms.</li>
-                    <li>Work collaboratively with cross-functional teams to deliver projects on time.</li>
-                    <li>Participate in code reviews, documentation, and version control.</li>
-                </ul>
-                <h3>Essential Criteria</h3>
-                <ul>
-                    <li>Bachelor’s degree in Software Engineering or relevant discipline.</li>
-                    <li>Experience with Python, PHP, SQL, and JavaScript frameworks.</li>
-                    <li>Understanding of DevOps and cloud deployment tools.</li>
-                    <li>Ability to adapt and learn emerging technologies quickly.</li>
-                </ul>
-                <a href="apply.php" class="button">Apply Now</a>
-            </div>
-        </section>
+            if ($result && mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    $title = htmlspecialchars($row['title']);
+                    $ref_num = mysqli_real_escape_string($dbconn, $row['ref_num']);
+
+                    echo "<section class='job_section' aria-labelledby='$title'>";
+                    echo "<h2 id='$title'>$title</h2>";
+                    echo "<p><strong>Reference Number: </strong>" . htmlspecialchars($row['ref_num']) . "</p>";
+                    echo "<p><strong>Salary: </strong>" . htmlspecialchars($row['salary']) . " per year plus Super</p>";
+                    echo "<p><strong>Reporting Line: </strong>" . htmlspecialchars($row['report_line']) . "</p>";
+                    echo "<h3>Description</h3>";
+                    echo "<p>" . htmlspecialchars($row['description']) . "</p>";
+
+                    echo "<h3>Key Responsibilities</h3>";
+                    // Fetch related responsibilities - unordered list
+                    $resp_query = "SELECT * FROM responsibility WHERE ref_num='$ref_num'";
+                    $resp_result = mysqli_query($dbconn, $resp_query);
+
+                    if ($resp_result && mysqli_num_rows($resp_result) > 0) {
+                        echo "<ul>";
+                        while ($item = mysqli_fetch_assoc($resp_result)) {
+                            echo "<li>" . htmlspecialchars($item['resp_item']) . "</li>";
+                        }
+                        echo "</ul>";
+                    } else {
+                        echo "<p>No responsibilities listed.</p>";
+                    }
+
+                    echo "<h3>Essential Requirements</h3>";
+                    // Fetch related essential requirements - ordered list
+                    $esse_query = "SELECT * FROM essential WHERE ref_num='$ref_num'";
+                    $esse_result = mysqli_query($dbconn, $esse_query);
+
+                    if ($esse_result && mysqli_num_rows($esse_result) > 0) {
+                        echo "<ol>";
+                        while ($item = mysqli_fetch_assoc($esse_result)) {
+                            echo "<li>" . htmlspecialchars($item['esse_item']) . "</li>";
+                        }
+                        echo "</ol>";
+                    } else {
+                        echo "<p>No essential requirements listed.</p>";
+                    }
+
+                    echo "<h3>Preferable Requirements</h3>";
+                    // Fetch related preferable requirements - unordered list
+                    $pref_query = "SELECT * FROM preferable WHERE ref_num='$ref_num'";
+                    $pref_result = mysqli_query($dbconn, $pref_query);
+
+                    if ($pref_result && mysqli_num_rows($pref_result) > 0) {
+                        echo "<ul>";
+                        while ($item = mysqli_fetch_assoc($pref_result)) {
+                            echo "<li>" . htmlspecialchars($item['pref_item']) . "</li>";
+                        }
+                        echo "</ul>";
+                    } else {
+                        echo "<p>No prefereable requirements listed.</p>";
+                    }
+                    echo "<div><p class='button' ><a href='apply.php'/ style='color: #fff; text-decoration: none;'>Apply</a></p></div>";
+                    echo "</section><br>";
+                }
+            } else {
+                echo "<p>There are no jobs to display.</p>";
+            }
+
+            mysqli_close($dbconn);
+        } else {
+            echo "<p>Unable to connect to the database.</p>";
+        }
+        ?>
     </article>
 </main>
 

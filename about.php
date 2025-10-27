@@ -28,7 +28,7 @@
 <!--Data base implementation -->
 <?php
 include 'settings.php';
-$conn = @mysqli_connect($host, $user, $pwd, $sql_db);
+$conn = @mysqli_connect($host, $username, $password, $dbname);
 
 if (!$conn) {
     echo "<p style='color:red;'>Database connection failed: " . mysqli_connect_error() . "</p>";
@@ -60,8 +60,6 @@ if (!$conn) {
     mysqli_close($conn);
 }
 ?>
-
-
 
   <!-- Group Photo Section -->
   <section id="group-photo" aria-labelledby="team-title">
