@@ -35,7 +35,10 @@ if (!$dbconn) {
 </head>
 
 <body>
+    <div class="page-header">
     <h1>EOI Manager</h1>
+    <a href="logout.php" class="logout-button">Logout</a>
+    </div>
 
     <!-- List all EOIs button form -->
     <form method="post">
