@@ -6,10 +6,10 @@
         <!-- Navigation bar with links to all pages -->
         <nav role="navigation">
             <ul>
-                <li><a href="about.php">About</a></li>
+                <li><a href="about.php"aria-current="page">About</a></li>
                 <li><a href="apply.php" aria-current="page">Apply</a></li>
-                <li><a href="jobs.php">Jobs</a></li>
-                <li><a href="index.php">Home</a></li>
+                <li><a href="jobs.php"aria-current="page">Jobs</a></li>
+                <li><a href="index.php"aria-current="page">Home</a></li>
             </ul>
         </nav>
     </div>
