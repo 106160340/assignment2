@@ -387,3 +387,8 @@ footer a:focus {
     font-size: 1.5em;
   }
 }
+
+/* Job section */
+#section_two {
+  float: left;
+}
