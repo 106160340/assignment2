@@ -1,4 +1,10 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Header include -->
 <?php include 'header.inc'; ?>
+
+<!-- navigation include -->
 <?php include 'nav.inc'; ?>
 
 <!-- Hero Image -->

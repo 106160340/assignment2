@@ -25,7 +25,7 @@
   <!-- Contributions Section (DYNAMIC) -->
   <section id="contributions" aria-labelledby="contributions-title">
     <h2 id="contributions-title">Group Contributions</h2>
-
+<!--Data base implementation -->
 <?php
 include 'settings.php';
 $conn = @mysqli_connect($host, $user, $pwd, $sql_db);
