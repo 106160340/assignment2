@@ -1,0 +1,51 @@
+/* Override global styles ONLY for manage.php */
+/* Used !important to make the code priority other code in other styles sheets because */
+
+form {
+  display: block !important;
+  margin-bottom: 20px; /* add spacing between forms for readability */
+}
+
+/* Reset unwanted form div box styling */
+form div {
+  border: none !important;
+  background: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Inputs and select spacing for cleaner layout */
+input, select, button {
+  margin: 5px 0;
+  padding: 8px;
+}
+
+/* Table styling cleanup */
+table {
+  border-collapse: collapse;
+  margin-top: 20px;
+  width: 100%;
+}
+
+table th, table td {
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+/* Ensures page fills full screen */
+html, body {
+  height: 100%;
+}
+
+/* Allows vertical layout to controlled, instead of letting browser dictate */
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* pushes footer all the way down */
+footer {
+  margin-top: auto; 
+}
+

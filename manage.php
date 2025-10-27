@@ -30,8 +30,8 @@ if (!$dbconn) {
 <?php include 'nav.inc'; ?>
 
 <head>
-
-
+<!-- reference to external CSS (Only for this page) -->
+    <link rel="stylesheet" type="text/css" href="styles/managestyles.css">
 </head>
 
 <body>
