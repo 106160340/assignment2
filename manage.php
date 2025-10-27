@@ -23,6 +23,12 @@ if (!$dbconn) {
 <!DOCTYPE html>
 <html lang="en">
 
+<!-- Header include -->
+<?php include 'header.inc'; ?>
+
+<!-- navigation include -->
+<?php include 'nav.inc'; ?>
+
 <head>
     <meta charset="utf-8" />
     <meta name="description" content="State University EOI" />
@@ -235,8 +241,10 @@ if (!$dbconn) {
         }
 
     ?>
-
+<!-- footer -->
+ <?php include 'footer.inc' ?>
 </body>
+
 </html>
 
 <!-- Used CHAT-GPT and weekly module material to assist me with creating this page -->
