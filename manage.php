@@ -11,7 +11,7 @@ if (!isset($_SESSION['user']) || $_SESSION['role'] !== 'admin') {
 require_once("settings.php");
 
 // Connect to the database
-$dbconn = mysqli_connect($host, $username, $password, $dbname);
+$dbconn = db_connect('eoi');
 // Error for Database connection failure
 if (!$dbconn) {
     die("Connection failed: " . mysqli_connect_error());
