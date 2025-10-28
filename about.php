@@ -4,7 +4,7 @@
 <!-- Header include -->
 <?php include 'header.inc'; ?>
 
-<!-- navigation include -->
+<!-- Navigation include -->
 <?php include 'nav.inc'; ?>
 
 <!-- ================= Hero Image ================= -->
@@ -22,44 +22,45 @@
     <p>Class Day/Time: Wednesday 12:30 pm</p>
   </section>
 
-  <!-- Contributions Section (DYNAMIC) -->
+  <!-- Contributions Section (Dynamic from Database) -->
   <section id="contributions" aria-labelledby="contributions-title">
     <h2 id="contributions-title">Group Contributions</h2>
 
-<?php
-include 'settings.php';
-$conn = @mysqli_connect($host, $username, $password, $dbname);
+    <?php
+   require_once __DIR__ . '/settings.php';
+   $conn = db_connect('about'); // Connects to your about_db
 
-if (!$conn) {
-    echo "<p style='color:red;'>Database connection failed: " . mysqli_connect_error() . "</p>";
-} else {
-    $query = "SELECT * FROM about";
-    $result = mysqli_query($conn, $query);
 
-    if ($result && mysqli_num_rows($result) > 0) {
-        // EXACT structure your CSS targets
-        echo "<dl>";
-        while ($row = mysqli_fetch_assoc($result)) {
-            $name = htmlspecialchars($row['full_name']);
-            $sid  = htmlspecialchars($row['student_id']);
-            $p1   = nl2br(htmlspecialchars($row['project1_work']));
-            $p2   = nl2br(htmlspecialchars($row['project2_work']));
-            $lang = htmlspecialchars($row['favourite_language']);
-
-            echo "<dt>{$name} ({$sid})</dt>";
-            echo "<dd>";
-            echo "<p><strong>Project 1:</strong> {$p1}</p>";
-            echo "<p><strong>Project 2:</strong> {$p2}</p>";
-            echo "<p><strong>Favourite language:</strong> {$lang}</p>";
-            echo "</dd>";
-        }
-        echo "</dl>";
+    if (!$conn) {
+        echo "<p style='color:red;'>Database connection failed: " . mysqli_connect_error() . "</p>";
     } else {
-        echo "<p>No member data found.</p>";
+        $query = "SELECT * FROM about";
+        $result = mysqli_query($conn, $query);
+
+        if ($result && mysqli_num_rows($result) > 0) {
+            echo "<dl>";
+            while ($row = mysqli_fetch_assoc($result)) {
+                $name = htmlspecialchars($row['full_name']);
+                $sid  = htmlspecialchars($row['student_id']);
+                $p1   = nl2br(htmlspecialchars($row['project1_work']));
+                $p2   = nl2br(htmlspecialchars($row['project2_work']));
+                $lang = htmlspecialchars($row['favourite_language']);
+
+                echo "<dt>{$name} ({$sid})</dt>";
+                echo "<dd>";
+                echo "<p><strong>Project 1:</strong> {$p1}</p>";
+                echo "<p><strong>Project 2:</strong> {$p2}</p>";
+                echo "<p><strong>Favourite language:</strong> {$lang}</p>";
+                echo "</dd>";
+            }
+            echo "</dl>";
+        } else {
+            echo "<p>No member data found.</p>";
+        }
+        mysqli_close($conn);
     }
-    mysqli_close($conn);
-}
-?>
+    ?>
+  </section>
 
   <!-- Group Photo Section -->
   <section id="group-photo" aria-labelledby="team-title">
@@ -115,4 +116,6 @@ if (!$conn) {
   </section>
 </main>
 
+<!-- Footer include -->
 <?php include 'footer.inc'; ?>
+</html>
