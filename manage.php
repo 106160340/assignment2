@@ -70,6 +70,7 @@ if (!$dbconn) {
     <!-- Sort field for results -->
     <form method="post">
         <label>Sort By:</label>
+        <!--  (onchange="this.form.submit()") this piece of code automatically sumbits a form when a value is changed by user) -->
         <select name="sort_field" required onchange="this.form.submit()">
             <option value="eoi_id" <?php if(isset($_POST['sort_field']) && $_POST['sort_field'] == 'eoi_id') echo 'selected'; ?>>EOI ID (default)</option>
             <option value="job_ref" <?php if(isset($_POST['sort_field']) && $_POST['sort_field'] == 'job_ref') echo 'selected'; ?>>Job Reference</option>
