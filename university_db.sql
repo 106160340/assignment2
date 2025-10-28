@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 27, 2025 at 02:03 PM
+-- Generation Time: Oct 28, 2025 at 11:49 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -45,6 +45,40 @@ INSERT INTO `about` (`member_id`, `full_name`, `student_id`, `project1_work`, `p
 (2, 'Yitian Yuan', '106160340', 'Created the Apply page and job application form for Project 1 with proper form validation, fieldsets, and accessibility labels. Integrated client-side testing with formtest.php and ensured semantic markup.', 'Handled Task 5 in Project 2, implementing process_eoi.php for backend validation and database insertion of job applications. Ensured secure form handling and sanitisation on the server side.', 'Python – 编程的艺术 (The art of coding)'),
 (3, 'Yousaff Mohammad', '106175315', 'Developed the Jobs page for Project 1 with realistic job postings, semantic structure, and well-organised lists and asides for clarity and readability.', 'Responsible for Task 6 in Project 2, building a database-driven Jobs page (jobs.php) that dynamically renders job listings from the MySQL jobs table.', 'C++ – البرمجة عالية الأداء (High performance progr'),
 (4, 'Ayon Ahammed', '105962794', 'Created the Index page (homepage) for Project 1, including the hero image, overview section, and navigation structure. Focused on layout consistency and responsive design.', 'Handled Tasks 3 and 4 in Project 2, developing process_eoi.php and manage.php functionalities, enabling HR management and form submissions to connect with the eoi database table.', 'JavaScript – প্রযুক্তির ভাষা (The language of inte');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `eoi`
+--
+
+CREATE TABLE `eoi` (
+  `eoi_id` int(11) NOT NULL,
+  `job_ref` varchar(5) NOT NULL,
+  `first_name` varchar(20) NOT NULL,
+  `last_name` varchar(20) NOT NULL,
+  `date_of_birth` date NOT NULL,
+  `gender` enum('male','female','other') NOT NULL,
+  `street` varchar(40) NOT NULL,
+  `suburb` varchar(40) NOT NULL,
+  `state` enum('VIC','NSW','QLD','TAS','ACT','NT','WA','SA') NOT NULL,
+  `postcode` char(4) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `phone` varchar(12) NOT NULL,
+  `skills` text DEFAULT NULL,
+  `other_skill_text` varchar(100) DEFAULT NULL,
+  `status` enum('New','Current','Final') DEFAULT 'New'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `eoi`
+--
+
+INSERT INTO `eoi` (`eoi_id`, `job_ref`, `first_name`, `last_name`, `date_of_birth`, `gender`, `street`, `suburb`, `state`, `postcode`, `email`, `phone`, `skills`, `other_skill_text`, `status`) VALUES
+(1, 'RA025', 'Yitian', 'Yuan', '1888-08-31', 'female', '89 The Ave', 'Town', 'VIC', '4000', 'yitian.yuan@swin.com', '003984009', 'first_aid, soldering', '', 'Current'),
+(4, 'RA025', 'Tom', 'Bouy', '1987-10-23', 'male', '314 here street', 'goste/town', 'VIC', '2098', 'tom.bouy@stateuni.edu', '972073542', 'data_analysis, other_skill', '', 'New'),
+(5, 'DLS15', 'chloe', 'Eding', '1995-10-17', 'male', '314 here street', 'goste/town', 'VIC', '2098', 'chloee@stateuni.edu', '20957542', 'other_skill', 'cooking', 'Final'),
+(7, 'RA025', 'Clark', 'Timmon', '1977-08-08', 'other', '93/875 murry st', 'suburb', 'VIC', '2028', 'timmon@stateuni.edu', '049998394', 'modelling, soldering', '', 'New');
 
 -- --------------------------------------------------------
 
@@ -165,7 +199,8 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`user_id`, `password_hash`, `role`, `username`) VALUES
 (1, '$2y$10$emi.Wb/i4hWy1C6eiRgXlOxXvBSg2RXxo3sNwe16kJ8g0ezlB8AYe', 'admin', 'admin'),
 (2, '$2y$10$HKg6gwxrL7Ogzut5McHbi.70ZazEBZzHKetO4k9L1ADtDfd1eIqSC', 'user', 'yitian'),
-(3, '$2y$10$Vc3LrzKj2tR.3d8NtvQkCu3AB/hi50VWghc7bb7bfquXJ4FOcJk3u', 'user', 'player');
+(3, '$2y$10$Vc3LrzKj2tR.3d8NtvQkCu3AB/hi50VWghc7bb7bfquXJ4FOcJk3u', 'user', 'player'),
+(4, '$2y$10$J2IkmtnYwgpHrKY9TgBbKeH6da2.JFzOc2ZnAExVB46iMWPd8CG5W', 'user', 'team');
 
 --
 -- Indexes for dumped tables
@@ -176,6 +211,12 @@ INSERT INTO `users` (`user_id`, `password_hash`, `role`, `username`) VALUES
 --
 ALTER TABLE `about`
   ADD PRIMARY KEY (`member_id`);
+
+--
+-- Indexes for table `eoi`
+--
+ALTER TABLE `eoi`
+  ADD PRIMARY KEY (`eoi_id`);
 
 --
 -- Indexes for table `essential`
@@ -223,6 +264,12 @@ ALTER TABLE `about`
   MODIFY `member_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT for table `eoi`
+--
+ALTER TABLE `eoi`
+  MODIFY `eoi_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
 -- AUTO_INCREMENT for table `essential`
 --
 ALTER TABLE `essential`
@@ -250,7 +297,7 @@ ALTER TABLE `responsibility`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables

@@ -4,7 +4,7 @@
 <!-- Header include -->
 <?php include 'header.inc'; ?>
 
-<!-- Navigation include -->
+<!-- navigation include -->
 <?php include 'nav.inc'; ?>
 
 <!-- ================= Hero Image ================= -->
@@ -22,14 +22,13 @@
     <p>Class Day/Time: Wednesday 12:30 pm</p>
   </section>
 
-  <!-- Contributions Section (Dynamic from Database) -->
+  <!-- Contributions Section (DYNAMIC) -->
   <section id="contributions" aria-labelledby="contributions-title">
     <h2 id="contributions-title">Group Contributions</h2>
 
-    <?php
-   require_once __DIR__ . '/settings.php';
-   $conn = db_connect('about'); // Connects to your about_db
-
+<?php
+include 'settings.php';
+$conn = @mysqli_connect($host, $username, $password, $dbname);
 
     if (!$conn) {
         echo "<p style='color:red;'>Database connection failed: " . mysqli_connect_error() . "</p>";
