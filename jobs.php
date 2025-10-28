@@ -19,19 +19,15 @@
 
         <!-- Job Listing -->
         <?php
-        require_once __DIR__ . "/settings.php";
+        require_once "settings.php";
 
-        // Connect using your multi-DB setup
-        try {
-            $dbconn = db_connect('jobs');  // connects to university_db
-        } catch (Exception $e) {
-            exit("<p style='color:red;'>Database connection failed: " . htmlspecialchars($e->getMessage()) . "</p>");
-        }
+        $dbconn = @mysqli_connect($host, $username, $password, $dbname);
 
-        $query = "SELECT * FROM jobs";
-        $result = mysqli_query($dbconn, $query);
+        if ($dbconn) {
+            $query = "SELECT * FROM jobs";
+            $result = mysqli_query($dbconn, $query);
 
-        if ($result && mysqli_num_rows($result) > 0) {
+            if ($result && mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) {
                 $title = htmlspecialchars($row['title']);
                 $ref_num = htmlspecialchars($row['ref_num']);
@@ -94,6 +90,9 @@
         }
 
         mysqli_close($dbconn);
+        } else {
+            echo "<p>Unable to connect to the database.</p>";
+        }
         ?>
     </article>
 </main>

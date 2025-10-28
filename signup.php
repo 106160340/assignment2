@@ -1,3 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Header include -->
+<?php include 'header.inc'; ?>
+
+<!-- navigation include -->
+<?php include 'nav.inc'; ?>
 <?php
 session_start();
 require_once "settings.php";
@@ -24,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (mysqli_num_rows($result) > 0) {
             echo "<p>Username already exists. Please choose another.</p>";
         } elseif ($pass !== $pass2) {
-        echo "<p>Please check the spelling of your password. Re-entered password must be exactly the same as the password.</p>"; 
+            echo "<p>Please check the spelling of your password. Re-entered password must be exactly the same as the password.</p>";
         } else {
             $hash = password_hash($pass, PASSWORD_DEFAULT);
             $insert = $dbconn->prepare("INSERT INTO users (username, password_hash) VALUES (?, ?)");
@@ -40,12 +48,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 } else {
 ?>
-<h2>Sign Up</h2>
-<form method="post" action="">
-    <label>Username: <input type="text" name="username" required></label><br>
-    <label>Password: <input type="password" name="password" required></label><br>
-    <label>Re-enter Password: <input type="password" name="password2" required></label><br>
-    <input type="submit" value="Sign Up">
-</form>
-<p>Already have an account? <a href="login.php">Login</a></p>
+    <section class="login_section" aria-labelledby="signup">
+        <h2 id="signup">Sign Up</h2>
+        <div>
+            <form method="post" action="">
+                <label>Username: <input type="text" name="username" required></label><br>
+                <label>Password: <input type="password" name="password" required></label><br>
+                <label>Re-enter Password: <input type="password" name="password2" required></label><br>
+                <input type="submit" value="Sign Up">
+            </form>
+            <p>Already have an account? <a href="login.php">Login</a></p>
+        </div>
+    </section>
 <?php } ?>
+<!-- footer -->
+<?php include 'footer.inc' ?>
+</body>
+
+</html>

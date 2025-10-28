@@ -173,7 +173,10 @@ input, select, textarea {
   font-style: italic;
   color: #555;
 }
-
+/* =============== login =================== */
+.login_section div {
+text-align: center;
+}
 /* =============== BUTTONS =================== */
 .button,
 input[type="submit"],

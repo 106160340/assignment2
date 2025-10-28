@@ -1,3 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Header include -->
+<?php include 'header.inc'; ?>
+
+<!-- navigation include -->
+<?php include 'nav.inc'; ?>
 <?php
 session_start();
 require_once "settings.php";
@@ -33,11 +41,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     mysqli_close($dbconn);
 } else {
 ?>
-<h2>Login</h2>
-<form method="post" action="">
-    <label>Username: <input type="text" name="username" required></label><br>
-    <label>Password: <input type="password" name="password" required></label><br>
-    <input type="submit" value="Login">
-</form>
-<p>Don't have an account? <a href="signup.php">Sign up</a></p>
+    <section class="login_section" aria-labelledby="login">
+        <h2 id="login">Login</h2>
+        <div>
+            <form method="post" action="">
+                <label>Username: <input type="text" name="username" required></label><br>
+                <label>Password: <input type="password" name="password" required></label><br>
+                <input type="submit" value="Login">
+            </form>
+            <p>Don't have an account? <a href="signup.php">Sign up</a></p>
+        </div>
+    </section>
 <?php } ?>
+<!-- footer -->
+<?php include 'footer.inc' ?>
+</body>
+
+</html>

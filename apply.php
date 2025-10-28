@@ -33,7 +33,7 @@
                     <h2>Job Details</h2>
                     <!-- Specify restriction on the input-->
                     <p class="prompt">Please fill in the Job Reference Number exactly as it appears in the <a
-                            class="inline_link" href="jobs.html">job listing</a>.
+                            class="inline_link" href="jobs.php">job listing</a>.
                         Accepting 5-character alfanumeric input only.</p>
                     <p class="prompt">For example: ab123</p>
                     <p><label for="job_ref">Job Reference Number<span class="asterisk">&ast;</span></label>
@@ -46,12 +46,12 @@
                     <h2>Personal Information</h2>
                     <p class="prompt">Maximum 20 characters in each field.</p>
                     <p><label for="first_name">First Name<span class="asterisk">&ast;</span></label>
-                        <input type="text" id="first_name" name="first_name" pattern="[A-Za-z]+{,20}"
+                        <input type="text" id="first_name" name="first_name" pattern="[A-Za-z]{1,20}"
                             placeholder="e.g. John" />
                     </p>
                     <p>
                         <label for="last_name">Last Name<span class="asterisk">&ast;</span></label>
-                        <input type="text" id="last_name" name="last_name" pattern="[A-Za-z]{,20}"
+                        <input type="text" id="last_name" name="last_name" pattern="[A-Za-z]{1,20}"
                             placeholder="e.g. Smith" />
                     </p>
                     <p class="prompt">
@@ -171,7 +171,7 @@
                             <input type="checkbox" id="other_skill" name="skills[]" value="other_skill" />
                             <label for="other_skill">Other skills...</label>
                             <input type="text" id="other_skill_text" name="other_skill_text" pattern=".{1,100}"
-                                placeholder="Max. 100 characters." required />
+                                placeholder="Max. 100 characters." />
                             <label for="other_skill_text">Please specify</label>
                         </p>
                     </fieldset>
